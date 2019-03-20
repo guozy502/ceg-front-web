@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.mainbox{ }
+	.mainbox .maps{ background:url(/static/image/map.jpg) top center no-repeat; height:366px; margin-top:60px;}
+	.gsxx{ width:280px; height:190px; margin-left:102px; background:rgba(51,153,51,0.8);_background:#58aa57; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f339933,endColorstr=#7f339933); /*for ie*/ color:#fff;  z-index:9999; }
+		.gsxx h2{ font-size:18px; text-align:left; height:58px; line-height:58px;padding:0 12px; }
+		.gsxx p{ font-size:14px; text-align:left; line-height:28px; padding:0 12px; }
+	.gsxx2{ height:366px; background:#f9f9f9; margin-bottom:51px; }
+		.gsxx2 .m0{ width:480px; overflow:hidden; margin:0 auto;}
+			.m0 h3{ font-size:29px; color:#5b5a5a; text-align:center; letter-spacing:1px; height:130px; line-height:130px;}
+			.m0 h3 span{ color:#39a305;}
+			.m0 p{text-align:left; font-size:16px; color:#5b5a5a; padding-bottom:20px; padding-right:20px;*padding-bottom:19px;_padding-bottom:18px;}
+		
+
+.gsxx2{ _margin-top:-17px; /* ie6 */}
+	* +html .gsxx2{ margin-top:-19px;}	/* ie7 */

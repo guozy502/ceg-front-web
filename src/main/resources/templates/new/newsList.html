@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>新闻动态 - 贝视优</title>
+    <meta name="keywords" content="新闻动态">
+    <meta name="description" content="新闻动态">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="/static/image/title_img.ico"/>
+    <link rel="stylesheet" href="/static/new/css/public.css" type="text/css">
+    <link rel="stylesheet" href="/static/new/css/intro.css" type="text/css">
+    <script src="//hm.baidu.com/hm.js?fb856ed1a7aea555deb7013403c93a7a"></script>
+    <script type="text/javascript" src="/static/new/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/new/js/jquery.SuperSlide.js"></script>
+    <script>var _hmt = _hmt || []; (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fb856ed1a7aea555deb7013403c93a7a";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();</script>
+</head>
+
+<body>
+<div th:replace="new/head :: html"></div>
+<div th:replace="new/navigation :: html"></div>
+<!-- end of class="nav_box" -->
+<script type="text/javascript">$(".down_box").mouseover(function() {
+    $(".Down").show();
+}).mouseout(function() {
+    $(".Down").hide();
+});</script>
+<div class="mains">
+    <div class="mainbox w1000">
+        <div class="list f-l">
+            <h2>关于我们</h2>
+            <div class="list_box">
+                <ul>
+                    <li>
+                        <a href="/shijing.php">公司简介</a></li>
+                    <li class="on">
+                        <a href="/news.php">新闻动态</a></li>
+                    <li>
+                        <a href="/culture.php">企业文化</a></li>
+                    <li>
+                        <a href="/honour.php">资质证书</a></li>
+                    <li>
+                        <a href="/pay.php">付款方式</a></li>
+                    <li>
+                        <a href="/job.php">人才招聘</a></li>
+                    <li>
+                        <a href="/contact.php">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="boom f-r">
+            <h1>新闻动态</h1>
+            <div class="wenzhang_box">
+                <div  th:each= "news,iterStat:${responseData.data}">
+                <div class="wenzhangs">
+                    <div class="f-l wenzhang_msg">
+                        <h3>
+                            <a th:href="@{'/ceg/front/showNewsDetail?id='+ ${news.id}}">
+                                <font style="font-size:20px;" th:text="${news.newsName}"></font></a>
+                        </h3>
+                        <p th:utext="${news.introduction}"></p>
+                        <h4 th:text="${#dates.format(news.createTime.getTime(),'yyyy-MM-dd hh:mm')}"></h4></div>
+                </div>
+                    <div style="clear:both;"></div>
+                </div>
+                <div class="list_fy">
+                    <div class="p_bar">
+                        <span class="p_info">64</span>
+                        <a href="/news.php?page=1" class="p_redirect">&lt;</a>
+                        <a href="/news.php?page=1" class="p_num">1</a>
+                        <span class="p_curpage">2</span>
+                        <a href="/news.php?page=3" class="p_num">3</a>
+                        <a href="/news.php?page=4" class="p_num">4</a>
+                        <a href="/news.php?page=5" class="p_num">5</a>
+                        <a href="/news.php?page=3" class="p_redirect">&gt;</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div th:replace="new/foot :: html"></div>
+<link href="/static/new/css/thickbox.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/static/new/js/thickbox.js"></script>
+<script type="text/javascript" src="/static/new/js/kefu.js"></script>
+<div class="kefubox cloneobj" style="width: 171px; height: 357px; right: 0px; position: fixed; z-index: 2147483647; top: 115px;">
+    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3538309612&amp;site=qq&amp;menu=yes" target="_blank">
+        <img src="/static/image/kefu_weixin.jpg" width="171" height="357"></a>
+</div>
+<script type="text/javascript">var uid = 0;
+var user_type = "";
+var is_login = 1;
+if (uid < 1) {
+    is_login = 0;
+}
+
+var color = 0;
+//time_color();
+function change_color() {
+    color++;
+    if (color % 2 == 1) $("#ty").css("color", "#ff0000");
+    else $("#ty").css("color", "#000000");
+    time_color();
+}
+function time_color() {
+    setTimeout("change_color()", 100);
+}
+
+$('a.weixin').click(function() {
+    $('div.wx_drop').show();
+    event.stopPropagation();
+});
+$(document).click(function() {
+    $("div.wx_drop").click(function() {
+        return;
+    });
+    $("div.wx_drop").hide();
+});
+$("#nav").slide({
+    defaultIndex: false,
+    type: "menu",
+    // 效果类型，针对菜单/导航而引入的参数（默认slide）
+    titCell: ".nLi",
+    //鼠标触发对象
+    targetCell: ".sub",
+    //titCell里面包含的要显示/消失的对象
+    effect: "slideDown",
+    //targetCell下拉效果
+    delayTime: 300,
+    //效果时间
+    triggerTime: 0,
+    //鼠标延迟触发时间（默认150）
+    returnDefault: true //鼠标移走后返回默认状态
+});</script>
+<style>.qiao-invite-wrap,.qiao-mess-wrap{display:none !important;}</style></body>
+
+</html>

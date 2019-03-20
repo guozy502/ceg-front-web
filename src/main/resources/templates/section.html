@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>页尾</title>
+    <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <style>
+        .foot-content{margin:0 auto;margin-bottom:10px;width: 100%;overflow: hidden;font: normal 12px arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif}
+        .foot-content ul{width:1000px; margin:0 auto; padding:10px 0px 17px 100px; overflow:hidden;flex-direction: row;text-align: center;}
+        .foot-content ul li{float:left; padding:0 28px;  border-right:1px solid #676767;display:inline;}
+        .foot-content ul li a{ color:#676767;display:inline;}
+    </style>
+</head>
+<body>
+<section class="foot_nav_met_11_4" m-id="6" m-type="foot_nav" >
+    <div class="container">
+        <div class="title-box text-xs-center">
+            <div class="head">
+                <h2 class="title">贝视优</h2>
+                <p class="desc">沈阳市浑南区</p>
+            </div>
+        </div>
+        <div class="foot-box clearfix">
+            <div class="foot-input col-md-8 text-xs-left">
+                <div class="met-foot-feedback clearfix">
+                    <form method="POST" class="met-form met-form-validation fv-form-bootstrap4 fv-form" enctype="multipart/form-data" action="#"  id="form" novalidate="novalidate">
+                        <button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+                        <div class="form-group p-r-15">
+                            <input name="name" id="otherName" class="form-control" type="text" placeholder="姓名 * 必选项 " />
+                        </div>
+                        <div class="form-group p-r-15">
+                            <input name="telephone" id="telephone" class="form-control" type="text" placeholder="电话 * 必选项" />
+                        </div>
+                        <div class="form-group p-r-15">
+                            <input name="address" id="address" class="form-control" type="text" placeholder="联系地址 * 必选项"  />
+                        </div>
+                        <div class="form-group p-r-15">
+                            <input name="email" id="email" class="form-control" type="text" placeholder="Email " data-fv-notempty="true" data-fv-message="不能为空" data-fv-field="para15" />
+                            <small class="form-control-label" data-fv-validator="notEmpty" data-fv-for="para15" data-fv-result="NOT_VALIDATED" style="display: none;">不能为空</small>
+                        </div>
+                        <div class="form-group w100 p-r-15">
+                            <textarea name="content" id="content" class="form-control" placeholder="内容 * 必选项" rows="5"></textarea>
+                        </div>
+                        <div class="form-group p-r-15">
+                            <div class="input-group input-group-icon">
+                                <input name="code" type="text" class="form-control input-codeimg" placeholder="验证码" required="" data-fv-message="不能为空" data-fv-field="code" id="kaptchaId"/>
+                                <span class="input-group-addon p-5"> <img src="/ceg/web/defaultKaptcha" id="getCode" title="看不清？点击更换验证码" align="absmiddle" role="button" onclick="changCode()"></span>
+                            </div>
+                            <small class="form-control-label" data-fv-validator="notEmpty" data-fv-for="code" data-fv-result="NOT_VALIDATED" style="display: none;">不能为空</small>
+                        </div>
+                        <div class="form-group p-r-15">
+                            <button type="submit" id="submitId" class="btn btn-primary btn-lg btn-block btn-squared">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="foot-info col-md-4">
+                <div class="foot-img">
+                    <img data-original="/static/image/logo_min.jpg" alt="" data-lazyload="true" src="/static/image/logo_min.png" class="" style="display: inline;" />
+                </div>
+                <div class="foot-tel">
+                    <span>免费服务热线：</span>
+                    <a href="tel:024-82613983">024-82613983</a>
+                    <p>服务时间：周一至周六8:30~17:30</p>
+                    <p class="more-info">邮箱：email@email.mt</p>
+                </div>
+            </div>
+        </div>
+        <!--友情链接-->
+        <div  class="foot-content">
+            <ul>
+                <li><a th:href="@{'/ceg/front/getDoctorListByPage'}" target="_blank" rel="nofollow">知名专家</a></li>
+                <li><a href="#" target="_blank">网站地图</a></li>
+                <li><a th:href="@{/ceg/partner/getPartnerPage}" target="_blank">合作加盟</a></li>
+                <li><a href="#" target="_blank" rel="nofollow">联系我们</a></li>
+                <li ><a th:href="@{/ceg/front/getNewsListByPage}" target="_blank" rel="nofollow">网站新闻</a></li>
+            </ul>
+        </div>
+        <!--友情链接-->
+    </div>
+</section>
+<!--TODO 校验输入内容参数-->
+<script type="text/javascript">
+    function changCode(){
+        var $testCode = $("#kaptchaId");
+        $testCode.src ="/ceg/web/defaultKaptcha?dateTime="+Math.random();
+    };
+    $('#form').bind("submit", function(){
+        var $name = $("#otherName").val(); if($name == ""){ alert("用户名不能为空！"); return false; }
+        var $telephone = $("#telephone").val(); if($telephone == ""){ alert("手机号码不能为空！"); return false; }
+        var $content = $("#content").val();if($content == ""){ alert("请输入需要咨询内容！"); return false; };
+        var $email = $("#email").val();
+        var $testCode = $("#testCode").val();
+        var $address = $("#address").val();
+        var obj ={"name" :$name,"telephone":$telephone,"content":$content,"email":$email,"address":$address,"testCode":$testCode}
+        var options = {
+            url: '/ceg/aboutMe/getPotentialUserInfo?keyWord=' + new Date().getSeconds(),
+            type: 'post',
+            dataType: 'json',
+            data:JSON.stringify(obj),
+            contentType:"application/json; charset=utf-8",
+            success: function (data) {
+                if (data.code == 10000){
+                    alert("数据已发送，您的反馈我们会尽快处理！")
+                };
+                if (data.code == 20000){
+                    alert("验证码错误，请重新提交！");
+                }
+                if (data.code == 9999){
+                    alert("服务器异常，请稍后再试！")
+                }
+            }
+        };
+        $.ajax(options);
+        return false;
+        $('#submitId').click(function(){
+            $('#form').submit();
+        })
+    });
+</script>
+</body>
+</html>

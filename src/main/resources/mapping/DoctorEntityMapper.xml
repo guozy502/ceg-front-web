@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ceg.mapper.DoctorEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.ceg.pojo.DoctorEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="hospital_name" property="hospitalName" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="introduce" property="introduce" jdbcType="VARCHAR" />
+    <result column="expertise" property="expertise" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+    <association property="area" column="area_id" javaType="com.ceg.dto.AreaDto" >
+      <id column="area_id" property="areaId" jdbcType="BIGINT"></id>
+      <result column="area_name" property="areaName" jdbcType="VARCHAR"/>
+    </association>
+  </resultMap>
+  <resultMap id="recommendResultMap" type="com.ceg.vo.DoctorVo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="hospital_name" property="hospitalName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="expertise" property="expertise" jdbcType="VARCHAR" />
+    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, position, hospital_name, telephone, sex, introduce, expertise, create_time,
+    update_time, img_url
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from doctor
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="queryDoctorListByPage" resultMap="BaseResultMap" parameterType="com.ceg.dto.DoctorQuery">
+    select  d.id, d.name, d.position, d.hospital_name, d.telephone, d.sex, d.introduce, d.expertise, d.create_time,
+    d.update_time, d.img_url,a.area_id,a.area_name
+    from doctor as d left join area as a  on d.area_id = a.area_id where 1=1
+     <if test="areaId != null">
+      and a.area_id = #{areaId,jdbcType=BIGINT}
+     </if>
+     order by d.create_time desc
+  </select>
+
+  <select id="queryDoctorList" resultMap="recommendResultMap" parameterType="com.ceg.dto.DoctorQuery">
+    select  d.id, d.name, d.position, d.hospital_name,
+     d.sex,  d.expertise,d.img_url
+    from doctor as d  where 1=1
+    <if test="expertise != null ">
+      and d.expertise like CONCAT('%',#{expertise},'%')
+    </if>
+     order by d.create_time desc LIMIT 3
+  </select>
+</mapper>

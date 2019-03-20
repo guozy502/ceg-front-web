@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script type="text/javascript" src="/static/js/meiqia.js"></script>
+    <style type="text/css" id="alertifyCSS">/* style.css */</style>
+    <title>用户中心-用户数据</title>
+    <meta name="renderer" content="webkit" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta name="generator" data-variable="https://account.metinfo.cn/|account|https://app.metinfo.cn/|https://www.metinfo.cn/" />
+    <link href="https://account.metinfo.cn/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/static/css/account.css" />
+    <!--<style type="text/css" id="MEIQIA-ICON-STYLE">.MEIQIA-ICON { background-size: 40px auto !important; background-repeat: no-repeat !important; background-image: url('https://static.meiqia.com/dist/images/icon-mq.png?v=s8raez2kyhn') !important; } @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min&#45;&#45;moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) { .MEIQIA-ICON { background-image: url('https://static.meiqia.com/dist/images/icon-mq@2x.png?v=s8raez2kyhn') !important; } } .MEIQIA-ICON-CHAT1 { background-position: 0 0 !important; } .MEIQIA-ICON-CHAT2 { background-position: 0 -20px !important; } .MEIQIA-ICON-CHAT3 { background-position: 0 -40px !important; } .MEIQIA-ICON-CHAT4 { background-position: 0 -60px !important; } .MEIQIA-ICON-CHAT5 { background-position: 0 -80px !important; } .MEIQIA-ICON-CHAT6 { background-position: 0 -100px !important; } .MEIQIA-ICON-CHAT7 { background-position: 0 -120px !important; } .MEIQIA-ICON-CHAT8 { background-position: 0 -140px !important; } .MEIQIA-ICON-CHAT9 { background-position: 0 -160px !important; } .MEIQIA-ICON-CHAT10 { background-position: 0 -180px !important; } .MEIQIA-ICON-CHAT11 { background-position: 0 -200px !important; } .MEIQIA-ICON-CHAT12 { background-position: 0 -220px !important; } .MEIQIA-ICON-TICKET1 { background-position: -20px 0 !important; } .MEIQIA-ICON-TICKET2 { background-position: -20px -20px !important; } .MEIQIA-ICON-TICKET3 { background-position: -20px -40px !important; } .MEIQIA-ICON-TICKET4 { background-position: -20px -60px !important; } .MEIQIA-ICON-TICKET5 { background-position: -20px -80px !important; } .MEIQIA-ICON-TICKET6 { background-position: -20px -100px !important; } .MEIQIA-ICON-TICKET7 { background-position: -20px -120px !important; } .MEIQIA-ICON-TICKET8 { background-position: -20px -140px !important; } .MEIQIA-ICON-TICKET9 { background-position: -20px -160px !important; } .MEIQIA-ICON-TICKET10 { background-position: -20px -180px !important; } .MEIQIA-ICON-TICKET11 { background-position: -20px -200px !important; } .MEIQIA-ICON-TICKET12 { background-position: -20px -220px !important; } </style>-->
+    <!--<style type="text/css" id="MEIQIA-PANEL-STYLE">#MEIQIA-PANEL-HOLDER { position: fixed; bottom: 0;  right: 60px;  z-index: -1; width: 320px; height: 480px; padding: 0; margin: 0; overflow: hidden; visibility: hidden; background-color: transparent; box-shadow: 0 0 20px 0 rgba(0, 0, 0, .15); border: 1px solid #eee\0; *border: 1px solid #eee; } #MEIQIA-IFRAME { position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: none; width: 100% !important; height: 100% !important; border: 0; padding: 0; margin: 0; float: none; background: none; } </style>-->
+</head>
+<body class="site-menubar-unfold">
+<div th:replace="background/backNavigation :: html"></div>
+<div th:replace="background/menuBar :: html"></div>
+<div class="page profile profile_info">
+    <div class="page-content">
+        <div class="row" >
+            <div class="col-md-12 col-lg-12">
+                <div class="col-md-3 col-lg-4">本周训练时长:<p th:text="${gameRecordDto.weekSumTime}"></p>分钟</div>
+                <div class="col-md-3 col-lg-4">本周训练总次数:<p th:text="${gameRecordDto.weekCount}"></p></div>
+                <div class="col-md-3 col-lg-4">本周视力提升:<p>0.6</p></div>
+            </div>
+            <div class="col-md-10 col-lg-12">
+                <div id="myChart" style="width:700px;height:500px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/static/js/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="/static/js/track.js"></script>
+<script type="text/javascript">
+    var data1=[];
+    var data2=[];
+    //初始化echarts
+    var myCharts = echarts.init(document.getElementById('myChart'));
+    option = {
+        title : {
+            text: '视力提升曲线',
+            subtext: ''
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['蒸发量']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['line', 'bar']},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                //data1 : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                data : data1
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value'
+            }
+        ],
+        series : [
+            {
+                name:'视力值',
+                type:'bar',
+                //data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
+                data:data2,
+                markPoint : {
+                    data : [
+                        {type : 'max', name: '最大值'},
+                        {type : 'min', name: '最小值'}
+                    ]
+                },
+                markLine : {
+                    data : [
+                        {type : 'average', name: '平均值'}
+                    ]
+                }
+            }
+        ]
+    };
+    $.ajax({
+        url: "/ceg/vision/getEchartVisionList",
+        type: "post",
+      //  data: {"trainType":trainType,"groupBy":groupBy},
+        datatype: "json",
+        success: function (res) {
+            //console.log( res.data.toString());
+            for(var i in res){
+               data1.push(i);
+               data2.push(res[i]);
+            }
+            myCharts.setOption(option);
+        }
+    });
+</script>
+<footer class="site-footer blue-grey-500 font-weight-300">
+    <div class="site-footer-legal">
+        Powered&nbsp;by&nbsp;
+        <a href="#" target="_blank" title="企业网站管理系统">MetInfo</a>
+    </div>
+    <div class="site-footer-right">
+        <span class="copyright margin-right-5">&copy; 米拓</span>
+        <span class="beian">湘 ICP 备 <a href="#" rel="nofollow" target="_blank">07500799 号 - 5</a> </span>
+    </div>
+</footer>
+<!--<script>-->
+    <!--var pagetype = 'profile_info',userName='guozhenyu112@163.com',useremail='guozhenyu112@163.com',ownurl='https://account.metinfo.cn/profile/info/',appurl='https://app.metinfo.cn/',accurl='https://account.metinfo.cn/',strcode='481ce2awe2b9m1a0cd71946f140e3edsh3b60051%24M%241536165648%24M%24eyJ3ZWl4aW4iOiIiLCJvcGVuaWQiOiIiLCJ1c2VyX2lkIjoiZ3Vvemhlbnl1MTEyQDE2My5jb20iLCJwbGFjZSI6ImFjY291bnQifQ%3D%3D%24M%241';-->
+<!--</script>-->
+<div>
+    <div class="sweet-overlay" tabindex="-1"></div>
+    <div class="sweet-alert" tabindex="-1">
+        <div class="icon error">
+            <span class="x-mark"><span class="line left"></span><span class="line right"></span></span>
+        </div>
+        <div class="icon warning">
+            <span class="body"></span>
+            <span class="dot"></span>
+        </div>
+        <div class="icon info"></div>
+        <div class="icon success">
+            <span class="line tip"></span>
+            <span class="line long"></span>
+            <div class="placeholder"></div>
+            <div class="fix"></div>
+        </div>
+        <div class="icon custom"></div>
+        <h2>Title</h2>
+        <p class="lead text-muted">Text</p>
+        <p><button class="cancel btn btn-lg" tabindex="2">Cancel</button> <button class="confirm btn btn-lg" tabindex="1">OK</button></p>
+    </div>
+</div>
+</body>
+</html>

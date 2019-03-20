@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ceg.mapper.NewsEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.ceg.pojo.NewsEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="news_name" property="newsName" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP"  />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="introduction" property="introduction" jdbcType="VARCHAR" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+    <result column="read_number" property="readNumber" javaType="INT"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, news_name, content, create_time, update_time, author, deleted,introduction,read_number
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from news
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from news
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ceg.pojo.NewsEntity" >
+    insert into news (id, news_name, content, 
+      create_time, update_time, author, 
+      deleted,introduction)
+    values (#{id,jdbcType=BIGINT}, #{newsName,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{author,jdbcType=VARCHAR}, 
+      #{deleted,jdbcType=BIT},#{introduction,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ceg.pojo.NewsEntity" >
+    insert into news
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="newsName != null" >
+        news_name,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="newsName != null" >
+        #{newsName,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="findNewsListByPage" resultMap="BaseResultMap" parameterType="com.ceg.dto.NewsQuery">
+    select 
+    <include refid="Base_Column_List"/>
+    from news as n
+    where 1=1
+    <if test="newsName != null and newsName != ''">
+      and n.news_name like '%${newsName}%'
+    </if>
+    order by n.create_time desc
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ceg.pojo.NewsEntity">
+    update news
+    set read_number = #{readNumber},update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>多宝视常见问题解答 - 贝视优 </title>
+    <meta name="keywords" content="多宝视常见问题解答">
+    <meta name="description" content="多宝视常见问题解答 ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="/static/image/title_img.ico"/>
+    <link rel="stylesheet" href="/static/new/css/public.css" type="text/css">
+    <link rel="stylesheet" href="/static/new/css/help.css" type="text/css">
+    <script src="//hm.baidu.com/hm.js?fb856ed1a7aea555deb7013403c93a7a"></script><script type="text/javascript" src="/static/new/js/jquery.js">
+    </script>
+    <script type="text/javascript" src="/static/new/js/jquery.SuperSlide.js"></script><script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fb856ed1a7aea555deb7013403c93a7a";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    <script type="text/javascript">
+        function show_answer(id) {
+            $(".help_content").each(function(i) {
+                if($(this).attr("id") != "help_content_"+id) {
+                    $(this).hide();
+                }
+            });
+            $(".lists ul li").css("background-color","#ffffff");
+            $(".lists ul li a").css("color","#585858");
+            $(".lists ul li a").css("font-weight","normal");
+            $(".help_title span").removeClass("help_icon");
+            $("#help_content_"+id).slideToggle("fast", function(){
+                if(!$("#help_content_"+id).is(":hidden")) {
+                    $("#help_"+id).css("background-color","#fafafa");
+                    $("#help_"+id+" a").css("color","#39a305");
+                    $("#help_"+id+" a").css("font-weight","bold");
+                    $("#help_"+id+" a span").addClass("help_icon");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div th:replace="new/head :: html"></div>
+<div th:replace="new/navigation :: html"></div>
+<script type="text/javascript">
+    $(".down_box").mouseover(function(){
+        $(".Down").show();
+    }).mouseout(function(){
+        $(".Down").hide();
+    });
+</script>
+<div class="top_msg">
+    <div class="w710 searchs">
+        <form id="form1" name="form1" method="get" action="">
+            <input type="text" class="text" name="q" value="请输入关键字" onfocus="if (this.value==this.defaultValue) this.value='';" onblur="if (this.value=='') this.value=this.defaultValue;" style="color:#bcbcbc; font-size:14px;">
+            <button type="submit">搜索</button></form>
+        <div class="clearfix"></div>
+        <p>搜索热词:
+            <!--<a href="?q=%E6%92%AD%E6%94%BE%E5%99%A8"><strong>播放器</strong></a>-->
+            <!--<a href="?q=%e5%ba%93%e6%b2%a1%e6%9c%89%e6%b3%a8%e5%86%8c">库没有注册</a>-->
+            <!--<a href="?q=%e8%ae%ad%e7%bb%83%e6%97%b6%e9%97%b4">训练时间</a>-->
+            <!--<a href="?q=%e7%ba%a2%e8%93%9d%e7%9c%bc%e9%95%9c">红蓝眼镜</a>-->
+            <!--<a href="?q=%e7%bd%91%e7%ab%99">打不开网站</a>-->
+        </p>
+    </div>
+</div>
+<div class="mains">
+    <div class="mainbox w1000">
+        <div class="question_list">
+            <div class="title">
+                <h2>问题列表</h2>
+            </div>
+            <div class="lists">
+                <ul th:each="help,iterStat:${questionData.data}">
+                    <li th:id="'help_'+${help.id}"><a href="javascript:;" class="help_title" th:onclick="'show_answer('+${help.id}+')'" onfocus="this.blur()"><span></span><font style="font-size:14px;" th:text="${help.name}"></font></a>
+                        <div class="help_content" th:id="'help_content_'+${help.id}">
+                            <div class="yigeicon">
+                                <a th:href="@{'/ceg/front/showQuestionDetail?id='+ ${help.id}}" target="_blank" title="查看详情"><img src="#" /></a>
+                            </div>
+                            <div class="yigehelp" th:utext="${help.content}">
+
+                            </div>
+                        </div> </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="lianxikefu">
+            <div class="w710 msgs">
+                <div class="f-l">
+                    <p>客服电话：4008-777-511</p>
+                    <p>客服 QQ：3538309612</p>
+                </div>
+                <div class="f-r">
+                    <p>官方微信号：dobosocn</p>
+                    <p>客服微信号：doboso3</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	<!-- end of class="mains" -->
+<div class="clearfix"></div>
+<div th:replace="new/foot :: html"></div>
+<link href="/static/new/css/thickbox.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/static/new/js/thickbox.js"></script>
+<script type="text/javascript" src="/static/new/js/kefu.js"></script>
+<div class="kefubox cloneobj" style="width: 171px; height: 357px; right: 0px; position: fixed; z-index: 2147483647; top: 115px;">
+    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3538309612&amp;site=qq&amp;menu=yes" target="_blank">
+        <img src="/static/image/kefu_weixin.jpg" width="171" height="357"></a>
+</div>
+<script type="text/javascript">var uid = 0;
+var user_type = "";
+var is_login = 1;
+if (uid < 1) {
+    is_login = 0;
+}
+
+var color = 0;
+//time_color();
+function change_color() {
+    color++;
+    if (color % 2 == 1) $("#ty").css("color", "#ff0000");
+    else $("#ty").css("color", "#000000");
+    time_color();
+}
+function time_color() {
+    setTimeout("change_color()", 100);
+}
+
+$('a.weixin').click(function() {
+    $('div.wx_drop').show();
+    event.stopPropagation();
+});
+$(document).click(function() {
+    $("div.wx_drop").click(function() {
+        return;
+    });
+    $("div.wx_drop").hide();
+});
+$("#nav").slide({
+    defaultIndex: false,
+    type: "menu",
+    // 效果类型，针对菜单/导航而引入的参数（默认slide）
+    titCell: ".nLi",
+    //鼠标触发对象
+    targetCell: ".sub",
+    //titCell里面包含的要显示/消失的对象
+    effect: "slideDown",
+    //targetCell下拉效果
+    delayTime: 300,
+    //效果时间
+    triggerTime: 0,
+    //鼠标延迟触发时间（默认150）
+    returnDefault: true //鼠标移走后返回默认状态
+});</script>
+<style>.qiao-invite-wrap,.qiao-mess-wrap{display:none !important;}</style></body>
+</html>

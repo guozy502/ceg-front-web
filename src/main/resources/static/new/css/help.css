@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+.top_msg{ width:100%; background: #ededed url(/static/image/serach-bg.png) center center no-repeat;}
+	.w710{ width:710px; margin:0 auto; overflow:hidden;}
+	.searchs{ padding:38px 0 10px 0;}
+		.searchs input{ width:600px; height:32px; line-height:32px; border:1px solid #39a305; float:left; text-indent:2em;}
+		.searchs button{ width:105px; height:34px; border:1px solid #39a305; color:#fff; font-size:16px; background:#39a305; float:left;}
+		.searchs p{ color:#585858; height:46px; line-height:46px; text-align:center; width:100%;font-size:14px;}
+			.searchs p a{ color:#39a305; padding-left:23px;}
+			.searchs p a:hover{ color:#226800; text-decoration:underline;}
+	.redian_question{ overflow:hidden; border-bottom:1px solid #e0e0e0;}
+		.redian_question .boxs{ float:left; box-sizing:border-box; overflow:hidden; width:33%; margin:30px 0; padding-left:26px; border-right:1px solid #e9e9e9;}
+			.boxs h2{ color:#404040; background:url(/static/image/icon.jpg) no-repeat; height:18px; line-height:18px; font-size:16px; padding-left:22px; padding-bottom:15px;}
+			.boxs p{ height:31px; line-height:31px; width:270px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+				.boxs p a{ color:#585858; padding-left:10px;}
+				.boxs p a:hover{ color:#39a305;}
+	.question_list{ overflow:hidden;}
+		.question_list .lists{ width:960px; margin:0 auto; }
+			.lists ul{ position:relative; padding-top:10px;}
+				.lists ul li{  border-bottom:1px dashed #eaeaea; font-size:14px;}
+				.lists .help_title{line-height:52px;}
+				.help_title{ text-align:left; color:#585858; padding-left:63px; position:relative;}
+				.lists ul li a:hover{ color:#39a305;}
+				.lists ul li a span{ background:url(/static/image/help_icon.png) no-repeat; height:28px; float:left; width:23px; position:absolute; top:-3px; left:28px;}
+				.lists .help_icon{background-position:-46px 0;}
+				.help_content{ background:#fafafa; overflow:hidden; display:none;}
+					.help_content .yigeicon,.help_content p{ margin-top:13px;}
+					.help_content .yigeicon{ float:left; background:url(/static/image/help_icon.png) -23px 0 no-repeat; width:23px; height:28px; margin-left:28px; display:inline-block;padding:50px 0 0 0;}
+					.help_content .yigehelp{ float:right; width:834px; font-size:14px; line-height:25px; color:#4a4b4a;  text-align:left; margin:10px 63px 16px 0;}
+					.yigehelp p{padding:0;margin:0;}
+		.lianxikefu{ overflow:hidden; background:url(/static/image/kefu_title.png) top center no-repeat; margin:30px 0 60px 0;}
+		.lianxikefu .msgs{ padding-top:76px; overflow:hidden;}
+			.lianxikefu .msgs .f-l{ background:url(/static/image/help.png) left no-repeat; height:96px; width:50%;}
+			.lianxikefu .msgs .f-r{ background:url(../img/erweima96x96.png) right no-repeat; height:96px; width:50%;}
+			.msgs .f-r p{ padding-right:110px;}
+			.msgs .f-l p{ padding-left:80px;}
+			.msgs p{ font-size:18px; color:#535353; text-align:left; line-height:37px; height:37px; padding:5px 0;}
+.no_content{font-size:24px; text-align:center; padding:50px; color:#666;}
+.highlight_keyword{color:#ff0000;}	

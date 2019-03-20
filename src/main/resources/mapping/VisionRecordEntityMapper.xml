@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ceg.mapper.VisionRecordEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.ceg.pojo.VisionRecordEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="case_id" property="caseId" jdbcType="BIGINT" />
+    <result column="patient" property="patient" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="BIGINT" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="right_Nv" property="rightNv" jdbcType="INTEGER" />
+    <result column="left_Nv" property="leftNv" jdbcType="INTEGER" />
+    <result column="right_CVA" property="rightCva" jdbcType="INTEGER" />
+    <result column="left_CVA" property="leftCva" jdbcType="INTEGER" />
+    <result column="right_DS" property="rightDs" jdbcType="INTEGER" />
+    <result column="left_DS" property="leftDs" jdbcType="INTEGER" />
+    <result column="right_DC" property="rightDc" jdbcType="INTEGER" />
+    <result column="left_DC" property="leftDc" jdbcType="INTEGER" />
+    <result column="right_angle" property="rightAngle" jdbcType="INTEGER" />
+    <result column="left_angle" property="leftAngle" jdbcType="INTEGER" />
+    <result column="right_CSF" property="rightCsf" jdbcType="INTEGER" />
+    <result column="left_CSF" property="leftCsf" jdbcType="INTEGER" />
+    <result column="right_VEP" property="rightVep" jdbcType="INTEGER" />
+    <result column="left_VEP" property="leftVep" jdbcType="INTEGER" />
+    <result column="right_VV" property="rightVv" jdbcType="INTEGER" />
+    <result column="left_VV" property="leftVv" jdbcType="INTEGER" />
+    <result column="paper_case_id" property="paperCaseId" jdbcType="INTEGER" />
+    <result column="poster" property="poster" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="simultaneous" property="simultaneous" jdbcType="VARCHAR" />
+    <result column="fusion" property="fusion" jdbcType="VARCHAR" />
+    <result column="stereo" property="stereo" jdbcType="VARCHAR" />
+    <result column="right_one" property="rightOne" jdbcType="VARCHAR" />
+    <result column="left_one" property="leftOne" jdbcType="VARCHAR" />
+    <result column="right_two" property="rightTwo" jdbcType="VARCHAR" />
+    <result column="left_two" property="leftTwo" jdbcType="VARCHAR" />
+    <result column="right_p100" property="rightP100" jdbcType="VARCHAR" />
+    <result column="left_p100" property="leftP100" jdbcType="VARCHAR" />
+    <result column="rest_eye" property="restEye" jdbcType="BIT" />
+    <result column="domi_eye" property="domiEye" jdbcType="VARCHAR" />
+    <result column="line_dive" property="lineDive" jdbcType="VARCHAR" />
+    <result column="line_conv" property="lineConv" jdbcType="VARCHAR" />
+    <result column="dot_dive" property="dotDive" jdbcType="VARCHAR" />
+    <result column="dot_conv" property="dotConv" jdbcType="VARCHAR" />
+    <result column="stat_stereo" property="statStereo" jdbcType="VARCHAR" />
+    <result column="titmus" property="titmus" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id,case_id patient, sex, age, right_Nv, left_Nv, right_CVA, left_CVA, right_DS,
+    left_DS, right_DC, left_DC, right_angle, left_angle, right_CSF, left_CSF, right_VEP, 
+    left_VEP, right_VV, left_VV, paper_case_id, poster, create_time, update_time, simultaneous, 
+    fusion, stereo, right_one, left_one, right_two, left_two, right_p100, left_p100,
+    rest_eye, domi_eye,line_dive, line_conv, dot_dive, dot_conv, stat_stereo,
+    titmus
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from vision_record
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from vision_record
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ceg.pojo.VisionRecordEntity" >
+    update vision_record
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="patient != null" >
+        patient = #{patient,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=BIGINT},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="rightNv != null" >
+        right_Nv = #{rightNv,jdbcType=INTEGER},
+      </if>
+      <if test="leftNv != null" >
+        left_Nv = #{leftNv,jdbcType=INTEGER},
+      </if>
+      <if test="rightCva != null" >
+        right_CVA = #{rightCva,jdbcType=INTEGER},
+      </if>
+      <if test="leftCva != null" >
+        left_CVA = #{leftCva,jdbcType=INTEGER},
+      </if>
+      <if test="rightDs != null" >
+        right_DS = #{rightDs,jdbcType=INTEGER},
+      </if>
+      <if test="leftDs != null" >
+        left_DS = #{leftDs,jdbcType=INTEGER},
+      </if>
+      <if test="rightDc != null" >
+        right_DC = #{rightDc,jdbcType=INTEGER},
+      </if>
+      <if test="leftDc != null" >
+        left_DC = #{leftDc,jdbcType=INTEGER},
+      </if>
+      <if test="rightAngle != null" >
+        right_angle = #{rightAngle,jdbcType=INTEGER},
+      </if>
+      <if test="leftAngle != null" >
+        left_angle = #{leftAngle,jdbcType=INTEGER},
+      </if>
+      <if test="rightCsf != null" >
+        right_CSF = #{rightCsf,jdbcType=INTEGER},
+      </if>
+      <if test="leftCsf != null" >
+        left_CSF = #{leftCsf,jdbcType=INTEGER},
+      </if>
+      <if test="rightVep != null" >
+        right_VEP = #{rightVep,jdbcType=INTEGER},
+      </if>
+      <if test="leftVep != null" >
+        left_VEP = #{leftVep,jdbcType=INTEGER},
+      </if>
+      <if test="rightVv != null" >
+        right_VV = #{rightVv,jdbcType=INTEGER},
+      </if>
+      <if test="leftVv != null" >
+        left_VV = #{leftVv,jdbcType=INTEGER},
+      </if>
+      <if test="paperCaseId != null" >
+        paper_case_id = #{paperCaseId,jdbcType=INTEGER},
+      </if>
+      <if test="poster != null" >
+        poster = #{poster,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="simultaneous != null" >
+        simultaneous = #{simultaneous,jdbcType=VARCHAR},
+      </if>
+      <if test="fusion != null" >
+        fusion = #{fusion,jdbcType=VARCHAR},
+      </if>
+      <if test="stereo != null" >
+        stereo = #{stereo,jdbcType=VARCHAR},
+      </if>
+      <if test="rightOne != null" >
+        right_one = #{rightOne,jdbcType=VARCHAR},
+      </if>
+      <if test="leftOne != null" >
+        left_one = #{leftOne,jdbcType=VARCHAR},
+      </if>
+      <if test="rightTwo != null" >
+        right_two = #{rightTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="leftTwo != null" >
+        left_two = #{leftTwo,jdbcType=VARCHAR},
+      </if>
+      <if test="rightP100 != null" >
+        right_p100 = #{rightP100,jdbcType=VARCHAR},
+      </if>
+      <if test="leftP100 != null" >
+        left_p100 = #{leftP100,jdbcType=VARCHAR},
+      </if>
+      <if test="restEye != null" >
+        rest_eye = #{restEye,jdbcType=BIT},
+      </if>
+      <if test="domiEye != null" >
+        domi_eye = #{domiEye,jdbcType=VARCHAR},
+      </if>
+      <if test="lineDive != null" >
+        line_dive = #{lineDive,jdbcType=VARCHAR},
+      </if>
+      <if test="lineConv != null" >
+        line_conv = #{lineConv,jdbcType=VARCHAR},
+      </if>
+      <if test="dotDive != null" >
+        dot_dive = #{dotDive,jdbcType=VARCHAR},
+      </if>
+      <if test="dotConv != null" >
+        dot_conv = #{dotConv,jdbcType=VARCHAR},
+      </if>
+      <if test="statStereo != null" >
+        stat_stereo = #{statStereo,jdbcType=VARCHAR},
+      </if>
+      <if test="titmus != null" >
+        titmus = #{titmus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ceg.pojo.VisionRecordEntity" >
+    update vision_record
+    set user_id = #{userId,jdbcType=BIGINT},
+      patient = #{patient,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=BIGINT},
+      age = #{age,jdbcType=INTEGER},
+      right_Nv = #{rightNv,jdbcType=INTEGER},
+      left_Nv = #{leftNv,jdbcType=INTEGER},
+      right_CVA = #{rightCva,jdbcType=INTEGER},
+      left_CVA = #{leftCva,jdbcType=INTEGER},
+      right_DS = #{rightDs,jdbcType=INTEGER},
+      left_DS = #{leftDs,jdbcType=INTEGER},
+      right_DC = #{rightDc,jdbcType=INTEGER},
+      left_DC = #{leftDc,jdbcType=INTEGER},
+      right_angle = #{rightAngle,jdbcType=INTEGER},
+      left_angle = #{leftAngle,jdbcType=INTEGER},
+      right_CSF = #{rightCsf,jdbcType=INTEGER},
+      left_CSF = #{leftCsf,jdbcType=INTEGER},
+      right_VEP = #{rightVep,jdbcType=INTEGER},
+      left_VEP = #{leftVep,jdbcType=INTEGER},
+      right_VV = #{rightVv,jdbcType=INTEGER},
+      left_VV = #{leftVv,jdbcType=INTEGER},
+      paper_case_id = #{paperCaseId,jdbcType=INTEGER},
+      poster = #{poster,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      simultaneous = #{simultaneous,jdbcType=VARCHAR},
+      fusion = #{fusion,jdbcType=VARCHAR},
+      stereo = #{stereo,jdbcType=VARCHAR},
+      right_one = #{rightOne,jdbcType=VARCHAR},
+      left_one = #{leftOne,jdbcType=VARCHAR},
+      right_two = #{rightTwo,jdbcType=VARCHAR},
+      left_two = #{leftTwo,jdbcType=VARCHAR},
+      right_p100 = #{rightP100,jdbcType=VARCHAR},
+      left_p100 = #{leftP100,jdbcType=VARCHAR},
+      rest_eye = #{restEye,jdbcType=BIT},
+      domi_eye = #{domiEye,jdbcType=VARCHAR},
+      line_dive = #{lineDive,jdbcType=VARCHAR},
+      line_conv = #{lineConv,jdbcType=VARCHAR},
+      dot_dive = #{dotDive,jdbcType=VARCHAR},
+      dot_conv = #{dotConv,jdbcType=VARCHAR},
+      stat_stereo = #{statStereo,jdbcType=VARCHAR},
+      titmus = #{titmus,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="queryVisionRecordCaseList" parameterType="com.ceg.vo.VisionRecordVo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from vision_record
+    where 1=1 and user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.ceg.pojo.VisionRecordEntity">
+    insert into vision_record (id,user_id,patient,sex,age,right_Nv,left_Nv,right_CVA,left_CVA,right_DS
+  ,left_DS,right_DC,left_DC,right_angle,left_angle,right_CSF
+  ,left_CSF,right_VEP,left_VEP,right_VV,left_VV,paper_case_id,poster,create_time
+   ,update_time,simultaneous ,fusion ,stereo ,right_one,left_one,right_two ,
+  left_two,right_p100,left_p100 ,rest_eye,domi_eye,line_dive,
+   line_conv,dot_dive,dot_conv,stat_stereo,titmus )
+    values (#{id,jdbcType=BIGINT},#{userId,jdbcType=BIGINT},#{patient,jdbcType=VARCHAR},#{sex,jdbcType=BIGINT},#{age,jdbcType=INTEGER},#{rightNv,jdbcType=INTEGER},
+#{leftNv,jdbcType=INTEGER},#{rightCva,jdbcType=INTEGER},#{leftCva,jdbcType=INTEGER},#{rightDs,jdbcType=INTEGER},#{leftDs,jdbcType=INTEGER},
+#{rightDc,jdbcType=INTEGER},#{leftDc,jdbcType=INTEGER},#{rightAngle,jdbcType=INTEGER},#{leftAngle,jdbcType=INTEGER},#{rightCsf,jdbcType=INTEGER},#{leftCsf,jdbcType=INTEGER},#{rightVep,jdbcType=INTEGER},#{leftVep,jdbcType=INTEGER},#{rightVv,jdbcType=INTEGER},#{leftVv,jdbcType=INTEGER},
+#{paperCaseId,jdbcType=INTEGER},#{poster,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP},#{updateTime,jdbcType=TIMESTAMP},
+#{simultaneous,jdbcType=VARCHAR},#{fusion,jdbcType=VARCHAR},#{stereo,jdbcType=VARCHAR},#{rightOne,jdbcType=VARCHAR},
+#{leftOne,jdbcType=VARCHAR},#{rightTwo,jdbcType=VARCHAR},#{leftTwo,jdbcType=VARCHAR},#{rightP100,jdbcType=VARCHAR},
+#{leftP100,jdbcType=VARCHAR},#{restEye,jdbcType=BIT},#{domiEye,jdbcType=VARCHAR},#{lineDive,jdbcType=VARCHAR},#{lineConv,jdbcType=VARCHAR},
+#{dotDive,jdbcType=VARCHAR},#{dotConv,jdbcType=VARCHAR},#{statStereo,jdbcType=VARCHAR},#{titmus,jdbcType=VARCHAR}
+)
+ </insert>
+</mapper>

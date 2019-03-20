@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.mains{}
+	.top_adress{ width:100%; float:right; overflow:hidden; margin-top:14px; border-bottom:1px solid #e0e0e0;}
+		.top_adress a{ font-size:12px; color:#545454; height:38px; line-height:38px;}
+		.top_adress a:hover{ text-decoration:underline;}
+		.top_adress	.search_box{ width:141px; /* ie6 */ height:38px; line-height:38px; _width:145px; _height:38px; _margin-top:-32px;}
+		.top_adress .search_box input{ width:119px; height:19px; line-height:19px; background:#e7e7e7; border:1px solid #e3e3e3; box-sizing:border-box; margin-right:3px;}
+		.top_adress .search_box button{ border:none; width:19px; height:19px; margin-top:10px; background:url(../img/search_icon.jpg) no-repeat; float:right; _margin-top:-21px; /* ie6 */}
+	.neirong,.tuijian{ margin-bottom:70px;}
+	.neirong{ width:73%; height:auto; overflow:hidden;}
+		.neirong .neirong_box{ padding:23px 20px;}
+			.neirong_box .tops{ padding-bottom:26px; border-bottom:1px dashed #dddddd;}
+				.tops h1{ font-size:25px; font-weight:bold; text-align:center; color:#333;;line-height:58px;}
+				.tops h2{ font-size:12px; color:#949494; text-align:center; }
+			.neirong_box .centers{ font-size:16px;line-height:28px;padding:26px 0; border-bottom:1px solid #d0d0d0;}
+				.centers a{color: #51aded;border-bottom: 2px solid #eaeaea;}
+				.centers a:hover{border-bottom:2px solid #48a9ec;}
+				.centers p{ text-indent:0em; text-align:left; margin:10px 0 20px 0; }
+				.centers pbr{ display:inline; line-height:35px;}
+				.centers img{ margin:5px auto;}
+			.neirong_box .bottoms{}
+				.bottoms .bdsharebuttonbox{ margin:37px auto; width:430px;}
+				.bottoms .bdsharebuttonbox a{ color:#00b1e3; }
+	.tuijian{ width:24%; height:auto; overflow:hidden;}
+		.tuijian .tuijian_box{}
+			.tuijian_box .titles{ border-bottom:1px solid #d0d0d0; padding-top:17px; height:40px; overflow:hidden;}
+				.titles h2{ display:inline; font-size:16px; font-weight:bold; color:#333;; line-height:40px; text-align:left; float:left;}
+				.tuijian_box ul{ margin-top:8px; margin-bottom:7px;}
+					.tuijian_box ul li{ height:30px; width:230px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+					.tuijian_box ul li a{ color:#585858; line-height:30px; text-align:left; padding-left:4px; }
+					.tuijian_box ul li a:hover{ color:#39a305; text-decoration:underline;}
+					
+#changyan_floatbar_wrapper{display:none !important;}

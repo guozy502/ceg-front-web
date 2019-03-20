@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ceg.mapper.GameVersionEntityMapper">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from game_version
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from game_version
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ceg.pojo.GameVersionEntity">
+    insert into game_version (id, create_time, update_time, 
+      version, update_url, update_content, 
+      forced_updating, update_exe)
+    values (#{id,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{version,jdbcType=VARCHAR}, #{updateUrl,jdbcType=VARCHAR}, #{updateContent,jdbcType=VARCHAR}, 
+      #{forcedUpdating,jdbcType=BIT}, #{updateExe,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ceg.pojo.GameVersionEntity">
+    insert into game_version
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="updateUrl != null">
+        update_url,
+      </if>
+      <if test="updateContent != null">
+        update_content,
+      </if>
+      <if test="forcedUpdating != null">
+        forced_updating,
+      </if>
+      <if test="updateExe != null">
+        update_exe,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUrl != null">
+        #{updateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="updateContent != null">
+        #{updateContent,jdbcType=VARCHAR},
+      </if>
+      <if test="forcedUpdating != null">
+        #{forcedUpdating,jdbcType=BIT},
+      </if>
+      <if test="updateExe != null">
+        #{updateExe,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ceg.pojo.GameVersionEntity">
+    update game_version
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=VARCHAR},
+      update_url = #{updateUrl,jdbcType=VARCHAR},
+      update_content = #{updateContent,jdbcType=VARCHAR},
+      forced_updating = #{forcedUpdating,jdbcType=BIT},
+      update_exe = #{updateExe,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.ceg.pojo.GameVersionEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="version" jdbcType="DOUBLE" property="version" />
+    <result column="update_url" jdbcType="VARCHAR" property="updateUrl" />
+    <result column="update_content" jdbcType="VARCHAR" property="updateContent" />
+    <result column="forced_updating" jdbcType="BIT" property="forcedUpdating" />
+    <result column="update_exe" jdbcType="VARCHAR" property="updateExe" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_time, update_time, version, update_url, update_content, forced_updating,
+    update_exe
+  </sql>
+  <select id="selectNewGameVersionInfo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from game_version as gv
+    ORDER BY gv.create_time desc LIMIT 1
+  </select>
+  <select id="selectGameVersionByVersion" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from game_version as gv
+    where 1=1 and gv.forced_updating = true
+    ORDER BY gv.create_time desc LIMIT 1
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ceg.pojo.GameVersionEntity">
+    update game_version
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUrl != null">
+        update_url = #{updateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="updateContent != null">
+        update_content = #{updateContent,jdbcType=VARCHAR},
+      </if>
+      <if test="forcedUpdating != null">
+        forced_updating = #{forcedUpdating,jdbcType=BIT},
+      </if>
+      <if test="updateExe != null">
+        update_exe = #{updateExe,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

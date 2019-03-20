@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>联系我们 - 贝视优</title>
+    <meta name="keywords" content="联系我们">
+    <meta name="description" content="贝视优联系方式">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="/static/image/title_img.ico"/>
+    <link rel="stylesheet" href="/static/new/css/public.css" type="text/css">
+    <link rel="stylesheet" href="/static/new/css/contact.css" type="text/css">
+    <script src="//hm.baidu.com/hm.js?fb856ed1a7aea555deb7013403c93a7a"></script>
+    <script type="text/javascript" src="/static/new/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/new/js/jquery.SuperSlide.js"></script>
+    <script>var _hmt = _hmt || []; (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fb856ed1a7aea555deb7013403c93a7a";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();</script>
+</head>
+
+<body>
+<div th:replace="new/head :: html"></div>
+<div th:replace="new/navigation :: html"></div>
+<script type="text/javascript">$(".down_box").mouseover(function() {
+    $(".Down").show();
+}).mouseout(function() {
+    $(".Down").hide();
+});</script>
+<div class="mains">
+    <div class="mainbox w1000">
+        <div class="maps">
+            <div class="gsxx">
+                <h2>沈阳贝视优软件有限公司</h2>
+                <p>地址：沈阳市天河软件园科韵园区建工路8号102室</p>
+                <p>邮编：510665</p>
+                <p>网址：http://www.topeye.cn</p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="gsxx2">
+            <div class="m0">
+                <h3>全国免费咨询热线：
+                    <span>4008-777-511</span></h3>
+                <div class="f-l" style="margin-left:20px;">
+                    <img src="/static/image/qrcode.jpg" width="190" height="190" alt=""></div>
+                <div class="f-r" style="margin-right:20px;">
+                    <p>客服ＱＱ：3538309612</p>
+                    <p>官方微信号：dobosocn</p>
+                    <p>客服微信号：doboso4</p>
+                    <p>邮箱：doboso@topeye.cn</p>
+                    <p>传真：020-85683012</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of class="mains" -->
+<div class="clearfix"></div>
+<div th:replace="new/foot :: html"></div>
+<link href="/static/new/css/thickbox.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/static/new/js/thickbox.js"></script>
+<script type="text/javascript" src="/static/new/js/kefu.js"></script>
+<div class="kefubox cloneobj" style="width: 171px; height: 357px; right: 0px; position: fixed; z-index: 2147483647; top: 115px;">
+    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3538309612&amp;site=qq&amp;menu=yes" target="_blank">
+        <img src="/static/image/kefu_weixin.jpg" width="171" height="357"></a>
+</div>
+<script type="text/javascript">var uid = 0;
+var user_type = "";
+var is_login = 1;
+if (uid < 1) {
+    is_login = 0;
+}
+var color = 0;
+//time_color();
+function change_color() {
+    color++;
+    if (color % 2 == 1) $("#ty").css("color", "#ff0000");
+    else $("#ty").css("color", "#000000");
+    time_color();
+}
+function time_color() {
+    setTimeout("change_color()", 100);
+}
+
+$('a.weixin').click(function() {
+    $('div.wx_drop').show();
+    event.stopPropagation();
+});
+$(document).click(function() {
+    $("div.wx_drop").click(function() {
+        return;
+    });
+    $("div.wx_drop").hide();
+});
+$("#nav").slide({
+    defaultIndex: false,
+    type: "menu",
+    // 效果类型，针对菜单/导航而引入的参数（默认slide）
+    titCell: ".nLi",
+    //鼠标触发对象
+    targetCell: ".sub",
+    //titCell里面包含的要显示/消失的对象
+    effect: "slideDown",
+    //targetCell下拉效果
+    delayTime: 300,
+    //效果时间
+    triggerTime: 0,
+    //鼠标延迟触发时间（默认150）
+    returnDefault: true //鼠标移走后返回默认状态
+})</body>
+
+</html>

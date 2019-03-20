@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+
+.mains{ width:1000px; margin:0 auto; margin-top:43px; margin-bottom:30px; position:relative;}
+	.pc_list,.pad_list{ margin-bottom:62px;}
+	.pc_list img,.pad_list img{border-radius:5px;}
+		.banben{ width:460px; height:148px; background:#f2f2f2; margin-top:20px;border-radius:5px;}
+			.banben h3,.banben a{ margin-left:25px;}
+			.banben h3{ font-size:24px; color:#0d0d; font-weight:bold; padding:32px 0 21px 0;}
+			.down-link { display:block; width:110px; height:38px; background:#4abd00; font-size:14px; color:#fff; border-radius:3px; padding-left:7px; text-align:center; line-height:38px; position:relative; cursor:pointer;}
+			.down-link:hover{ background:#2c8300;color:#fff;}
+			.banben s{ background:url(../img/down/down_icons.png) no-repeat; width:14px; height:18px; position:absolute; top:11px; left:15px;}
+			.banben p{ color:#999999; font-size:12px; line-height:23px; margin-left:180px; margin-top:-88px;}
+			
+			.banben h3 a{margin-left:0;color:#333;font-weight: normal;}
+			.banben h3 a:hover{color:#000;}
+			
+			
+		.s2 s{ background-position: -17px 0;}
+		.s3 s{ background-position: -34px 0;}
+		.s4 s{ background-position: -49px 0;}
+	.wy_ban{ border-top:1px solid #e6e6e6; background:url(../img/down/wys.jpg) center left no-repeat; height:320px; clear:both;}
+		.wy_ban .wy_msg{ margin-left:545px; margin-top:56px;}
+		.wy_ban h4{ font-size:24px; color:#333;font-weight: normal;line-height:46px;}
+		.wy_ban p{ font-size:16px; color:#737373; line-height:30px; margin-bottom:27px;}
+		.wy_ban a{ display:block; width:110px; height:38px; font-size:14px; color:#fff; background:#2f90f2; text-align:center; line-height:38px; border-radius:3px;}
+			.wy_ban a:hover{ background:#1e75ac;color:#fff; }

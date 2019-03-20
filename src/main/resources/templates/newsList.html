@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>新闻资讯</title>
+ <link rel="icon" href="/static/image/title_img.ico"/>
+  <meta name="renderer" content="webkit" /> 
+  <meta charset="utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0,minimal-ui" /> 
+  <meta name="format-detection" content="telephone=no" /> 
+  <meta name="keywords" content="医疗机械网站制作|医疗机械网站建设" />
+  <link href="https://show.metinfo.cn/m/mui120/363/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="/static/css/basic.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/news.css" />
+ <script src="/static/js/jquery-3.1.1.min.js"></script>
+ <script  src="/static/js/bootstrap/pagination.js"/>
+ <!--<script charset="utf-8" src="/static/js/b.js"></script>-->
+  <script src="/static/js/pc_nb.js" charset="UTF-8"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+  <script charset="utf-8" data-require-id="embed/webimlight/main" src="/static/js/main.js" async=""></script>
+ </head>
+ <body class="met-navfixed ny-nobanner">
+  <header class="met-head navbar-fixed-top" m-id="1" m-type="head_nav"> 
+   <div id="tophead" style="display: block;"> 
+    <div class="container"> 
+     <div class="row"> 
+      <div class="col-sm-12"> 
+       <div class="tophead-contact pull-xs-left"> 
+        <ul class="m-0 p-0"> 
+         <li> <i class="fa fa-phone" aria-hidden="true"></i><a href="tel:">0731-00000000</a></li>
+         <li> <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:">email@email.mt</a></li> 
+        </ul> 
+       </div> 
+       <div class="tophead-right tophead-address pull-xs-right"> 
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <span>辽宁沈阳市浑南区</span>
+       </div> 
+       <div class="clear"></div> 
+      </div> 
+     </div> 
+    </div> 
+   </div>
+   <nav class="navbar navbar-default box-shadow-none head_nav_met_16_2">
+    <div class="container">
+     <div class="row">
+      <h1 hidden="">新闻咨询列表</h1>
+      <!-- logo -->
+      <div th:replace="log :: html"></div>
+      <!-- logo -->
+      <button type="button" class="navbar-toggler hamburger hamburger-close collapsed p-x-5 head_nav_met_16_2-toggler" data-target="#head_nav_met_16_2-collapse" data-toggle="collapse"> <span class="sr-only"></span> <span class="hamburger-bar"></span> </button>
+      <!-- 导航 -->
+      <div th:replace="navigation :: html"></div>
+      <!-- 导航 -->
+     </div>
+    </div>
+   </nav>
+  </header>
+  <main class="news_list_page_met_11_4 met-news"> 
+   <div class="container met-news-body"> 
+    <div class="row"> 
+     <div class="col-md-9 met-news-body"> 
+      <div class="row"> 
+       <div class="met-news-list"> 
+        <ul class="ulstyle met-pager-ajax imagesize" data-scale="400x400" m-id="11" th:each= "news,iterStat:${responseData.data}">
+         <!-- 极简模式 --> 
+         <li class="border-bottom1"> <h4 class="animation-delay-200 appear-no-repeat animation-slide-bottom" data-repeat="false"> <a href="#" th:text="${news.newsName}" title="" target="_self"></a> </h4>
+          <div class="clearfix"> 
+           <p class="des animation-delay-300 appear-no-repeat animation-slide-bottom" data-repeat="false" th:utext='${news.introduction}'> </p>
+           <a th:href="@{'/ceg/front/showNewsDetail?id='+ ${news.id}}" class="more  animation-delay-400 appear-no-repeat animation-slide-bottom" data-repeat="false"> <span data-title="了解更多"> 了解更多 </span> </a>
+          </div> <p class="info font-weight-300 animation-delay-500 appear-no-repeat animation-slide-bottom" data-repeat="false"> <span th:text="${#dates.format(news.createTime.getTime(),'yyyy-MM-dd hh:mm:ss')}"></span></p> </li>
+        </ul> 
+        <div class="m-t-20 text-xs-center hidden-sm-down" m-type="nosysdata">
+         <div th:include="page::html">
+         </div>
+        </div> 
+        <div class="met_pager met-pager-ajax-link hidden-md-up appear-no-repeat animation-slide-bottom" data-repeat="false" m-type="nosysdata" style=""> 
+         <button type="button" class="btn btn-primary btn-block btn-squared ladda-button" id="met-pager-btn" data-plugin="ladda" data-style="slide-left" data-url="" data-page="1"><span class="ladda-label"> <i class="icon wb-chevron-down m-r-5" aria-hidden="true"></i> </span><span class="ladda-spinner"></span></button> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="col-md-3"> 
+      <div class="row"> 
+       <aside class="sidebar_met_16_1 met-sidebar panel panel-body m-b-0" boxmh-h="" m-id="12" m-type="nocontent"> 
+        <form class="sidebar-search" method="get" action="/ceg/front/getNewsListByPage">
+         <div class="form-group">
+          <div class="input-search"> 
+           <button type="submit" class="input-search-btn"> <i class="icon wb-search" aria-hidden="true"></i> </button> 
+           <input type="text" class="form-control" name="newsName" placeholder="以新闻标题搜索" />
+          </div> 
+         </div> 
+        </form> 
+       </aside>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </main>
+  <div th:replace="section :: html"></div>
+  <div th:replace="foot :: html"></div>
+  <!--<script src="/static/js/basic.js"></script>-->
+  <div th:replace="weiXinInfo :: html"></div>
+ </body>
+</html>

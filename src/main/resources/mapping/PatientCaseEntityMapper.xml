@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ceg.mapper.PatientCaseEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.ceg.pojo.PatientCaseEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="patient_name" property="patientName" jdbcType="VARCHAR" />
+    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+    <result column="before_sight" property="beforeSight" jdbcType="VARCHAR" />
+    <result column="after_sight" property="afterSight" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="case_type" property="caseType" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP"  />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name,patient_name, img_url, description,content, deleted, before_sight, after_sight, sex,case_type,create_time,update_time,age
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from patient_case
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectPatientCaseList" resultMap="BaseResultMap" parameterType="com.ceg.dto.PatientCaseQuery">
+    select
+    <include refid="Base_Column_List" />
+    from patient_case where  1=1
+    <if test="id != null">
+      and id = #{id,jdbcType=BIGINT}
+    </if>
+    order by create_time desc limit 5
+  </select>
+
+  <select id="selectPatientCaseListByPage" resultMap="BaseResultMap" parameterType="com.ceg.dto.PatientCaseQuery">
+    select
+    <include refid="Base_Column_List" />
+    from patient_case where  1=1
+    <if test="id != null">
+      and id = #{id,jdbcType=BIGINT}
+    </if>
+     order by create_time desc
+  </select>
+</mapper>

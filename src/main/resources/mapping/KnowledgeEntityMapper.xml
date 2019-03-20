@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ceg.mapper.KnowledgeEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.ceg.pojo.KnowledgeEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+    <result column="read_number" property="readNumber"  jdbcType="INTEGER"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, content,description, author, create_time, update_time, deleted,read_number
+  </sql>
+  <select id="selectSimpleKnowledge" resultMap="BaseResultMap" parameterType="com.ceg.dto.KnowledgeQuery" >
+    select 
+    <include refid="Base_Column_List" />
+    from knowledge
+    where 1 = 1
+    <if test="isBefore != true || isNext != true">
+      and id = #{id,jdbcType=BIGINT}
+    </if>
+    <if test="isBefore == true">
+      and id = (select id from knowledge where  id &lt; #{id,jdbcType=BIGINT} order by id desc limit 1)
+    </if>
+    <if test="isNext == true">
+      and id = (select id from knowledge where id &gt; #{id,jdbcType=BIGINT} order by id asc limit 1)
+    </if>
+  </select>
+<select id="queryKnowLedgeListByPage" resultMap="BaseResultMap" parameterType="com.ceg.dto.KnowledgeQuery">
+  select
+  <include refid="Base_Column_List"/>
+  from knowledge
+  where 1=1
+  <if test="id != null">
+    and id = #{id,jdbcType=BIGINT}
+  </if>
+  <if test="name != null">
+    and name like '%${name}%'
+  </if>
+  <if test="content != null">
+    and content like '%${content}%'
+  </if>
+
+</select>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.ceg.pojo.KnowledgeEntity">
+    update knowledge
+    set read_number = #{readNumber},update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+<select id="selectBothSideKnowledgeList" resultMap="BaseResultMap" parameterType="com.ceg.dto.KnowledgeQuery">
+  SELECT * FROM knowledge
+  WHERE id IN (SELECT
+      CASE
+      WHEN SIGN(id - #{id,jdbcType=BIGINT}) &gt; 0 THEN MIN(id)
+      WHEN SIGN(id - #{id,jdbcType=BIGINT}) &lt; 0 THEN MAX(id)
+      END AS id
+      FROM knowledge GROUP BY
+      SIGN(id - #{id,jdbcType=BIGINT})
+  ORDER BY SIGN(id- #{id,jdbcType=BIGINT}))ORDER BY id ASC;
+
+</select>
+</mapper>

@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<!--<script async="" src="//eco-api.meiqia.com/dist/meiqia.js"></script>-->
+	<style type="text/css" id="alertifyCSS">/* style.css */</style>
+	<title>贝视优-用户中心</title>
+	<meta name="renderer" content="webkit" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+	<meta name="generator" data-variable="https://account.metinfo.cn/|account|https://app.metinfo.cn/|https://www.metinfo.cn/" />
+	<link href="https://account.metinfo.cn/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="/static/css/account.css" />
+	<style type="text/css"></style>
+	<!--<style type="text/css" id="MEIQIA-ICON-STYLE">.MEIQIA-ICON { background-size: 40px auto !important; background-repeat: no-repeat !important; background-image: url('https://static.meiqia.com/dist/images/icon-mq.png?v=s8raez2kyhn') !important; } @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min&#45;&#45;moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) { .MEIQIA-ICON { background-image: url('https://static.meiqia.com/dist/images/icon-mq@2x.png?v=s8raez2kyhn') !important; } } .MEIQIA-ICON-CHAT1 { background-position: 0 0 !important; } .MEIQIA-ICON-CHAT2 { background-position: 0 -20px !important; } .MEIQIA-ICON-CHAT3 { background-position: 0 -40px !important; } .MEIQIA-ICON-CHAT4 { background-position: 0 -60px !important; } .MEIQIA-ICON-CHAT5 { background-position: 0 -80px !important; } .MEIQIA-ICON-CHAT6 { background-position: 0 -100px !important; } .MEIQIA-ICON-CHAT7 { background-position: 0 -120px !important; } .MEIQIA-ICON-CHAT8 { background-position: 0 -140px !important; } .MEIQIA-ICON-CHAT9 { background-position: 0 -160px !important; } .MEIQIA-ICON-CHAT10 { background-position: 0 -180px !important; } .MEIQIA-ICON-CHAT11 { background-position: 0 -200px !important; } .MEIQIA-ICON-CHAT12 { background-position: 0 -220px !important; } .MEIQIA-ICON-TICKET1 { background-position: -20px 0 !important; } .MEIQIA-ICON-TICKET2 { background-position: -20px -20px !important; } .MEIQIA-ICON-TICKET3 { background-position: -20px -40px !important; } .MEIQIA-ICON-TICKET4 { background-position: -20px -60px !important; } .MEIQIA-ICON-TICKET5 { background-position: -20px -80px !important; } .MEIQIA-ICON-TICKET6 { background-position: -20px -100px !important; } .MEIQIA-ICON-TICKET7 { background-position: -20px -120px !important; } .MEIQIA-ICON-TICKET8 { background-position: -20px -140px !important; } .MEIQIA-ICON-TICKET9 { background-position: -20px -160px !important; } .MEIQIA-ICON-TICKET10 { background-position: -20px -180px !important; } .MEIQIA-ICON-TICKET11 { background-position: -20px -200px !important; } .MEIQIA-ICON-TICKET12 { background-position: -20px -220px !important; } </style>-->
+	<!--<style type="text/css" id="MEIQIA-PANEL-STYLE">#MEIQIA-PANEL-HOLDER { position: fixed; bottom: 0;  right: 60px;  z-index: -1; width: 320px; height: 480px; padding: 0; margin: 0; overflow: hidden; visibility: hidden; background-color: transparent; box-shadow: 0 0 20px 0 rgba(0, 0, 0, .15); border: 1px solid #eee\0; *border: 1px solid #eee; } #MEIQIA-IFRAME { position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: none; width: 100% !important; height: 100% !important; border: 0; padding: 0; margin: 0; float: none; background: none; } </style>-->
+</head>
+<body class="site-menubar-unfold">
+<div th:replace="background/backNavigation :: html"></div>
+<div th:replace="background/menuBar :: html"></div>
+<style>
+	#succ{display:none}
+</style>
+<a href="#" target="_blank" class="loginadminlink hide"><span></span></a>
+<input type="hidden" name="user_tel" value="" />
+<!--<div class="page profile profile_index">-->
+	<!--<div class="alert dark alert-danger alert-dismissible padding-vertical-5 padding-left-10 margin-bottom-0 width-full profile-alert">-->
+		<!--<button type="button" class="close" aria-label="Close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>您有尚未完成的订单-->
+		<!--<a class="btn btn-primary btn-xs btn-inverse btn-outline margin-left-10" href="#">点此继续</a>-->
+	<!--</div>-->
+	<!--<div class="page-content">-->
+		<!--<div class="row">-->
+			<!--<div class="col-xlg-9 col-lg-10">-->
+				<!--&lt;!&ndash;<div class="nav-tabs-horizontal nav-tabs-inverse">&ndash;&gt;-->
+					<!--&lt;!&ndash;<ul class="nav nav-tabs nav-tabs-solid profile_nav">&ndash;&gt;-->
+						<!--&lt;!&ndash;<li class="active"> <a href="https://account.metinfo.cn/profile/" class="padding-horizontal-30">站点</a> </li>&ndash;&gt;-->
+						<!--&lt;!&ndash;<li> <a href="https://account.metinfo.cn/profile/template/" class="padding-horizontal-30">模板</a> </li>&ndash;&gt;-->
+						<!--&lt;!&ndash;<li> <a href="https://account.metinfo.cn/profile/business/" class="padding-horizontal-30">授权</a> </li>&ndash;&gt;-->
+						<!--&lt;!&ndash;<li> <a href="https://account.metinfo.cn/profile/host/" class="padding-horizontal-30">空间 </a> </li>&ndash;&gt;-->
+						<!--&lt;!&ndash;<li> <a href="https://account.metinfo.cn/profile/domain/" class="padding-horizontal-30">域名</a> </li>&ndash;&gt;-->
+						<!--&lt;!&ndash;<li> <a href="https://account.metinfo.cn/profile/wuyou/" class="padding-horizontal-30">无忧</a> </li>&ndash;&gt;-->
+						<!--&lt;!&ndash;<li> <a href="https://account.metinfo.cn/profile/service/" class="padding-horizontal-30">服务</a> </li>&ndash;&gt;-->
+					<!--&lt;!&ndash;</ul>&ndash;&gt;-->
+					<!--&lt;!&ndash;&lt;!&ndash;<div class="tab-content">&ndash;&gt;&ndash;&gt;-->
+						<!--&lt;!&ndash;&lt;!&ndash;<div class="row">&ndash;&gt;&ndash;&gt;-->
+							<!--&lt;!&ndash;&lt;!&ndash;<div class="col-md-12">&ndash;&gt;&ndash;&gt;-->
+								<!--&lt;!&ndash;&lt;!&ndash;<p class="alert alert-danger margin-bottom-0">官方销售的西部数码主机系统会自动安装，无需手动一键安装；<br />官方销售的阿里云主机购买请点击站点列表右侧的【网站安装】或【网站安装/迁移】进行自动安装。</p>&ndash;&gt;&ndash;&gt;-->
+								<!--&lt;!&ndash;&lt;!&ndash;<ul class="list-group website-body margin-bottom-0">&ndash;&gt;&ndash;&gt;-->
+									<!--&lt;!&ndash;&lt;!&ndash;<p class="blue-grey-400 margin-vertical-20 ">没有可管理的网站<i class="icon pe-help1 font-size-18" style="margin-left:3px; position:relative; top:2px;" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" data-original-title="在米拓官网购买空间后可在此处更加便捷的管理网站（自动安装、一键登录后台等）。"></i></p>&ndash;&gt;&ndash;&gt;-->
+								<!--&lt;!&ndash;&lt;!&ndash;</ul>&ndash;&gt;&ndash;&gt;-->
+								<!--&lt;!&ndash;&lt;!&ndash;<button class="btn btn-danger padding-horizontal-25 onekeyinstall">一键安装（官方购买主机无需一键安装）</button>&ndash;&gt;&ndash;&gt;-->
+								<!--&lt;!&ndash;&lt;!&ndash;<a href="https://www.metinfo.cn/product/" class="btn btn-primary padding-horizontal-25 margin-left-10" target="_blank">去开通试用</a>&ndash;&gt;&ndash;&gt;-->
+							<!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+						<!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+					<!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+				<!--&lt;!&ndash;</div>&ndash;&gt;-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</div>-->
+<div class="modal modal-primary fade" id="setbinding">
+	<div class="modal-dialog modal-sm modal-center">
+		<div class="modal-content">
+			<form action="#" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+				<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+					<h4 class="modal-title">一键登录设置</h4>
+				</div>
+				<div class="modal-body padding-bottom-0">
+					<p class="alert alert-danger"> 便捷登录网站后台。<br /> 请输入网站管理员账号密码。<br /> 账号密码多层加密请放心填写。<br /> </p>
+					<input type="hidden" name="websiteid" value="" />
+					<input type="hidden" name="url" value="" />
+					<input type="hidden" name="id" value="" />
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="后台账号" name="login_admin" autocomplete="off" data-fv-notempty="true" data-fv-field="login_admin" />
+						<small class="help-block" data-fv-validator="notEmpty" data-fv-for="login_admin" data-fv-result="NOT_VALIDATED" style="display: none;">请填写必填项目</small>
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" placeholder="后台密码" name="login_pass" autocomplete="off" data-fv-notempty="true" data-fv-field="login_pass" />
+						<small class="help-block" data-fv-validator="notEmpty" data-fv-for="login_pass" data-fv-result="NOT_VALIDATED" style="display: none;">请填写必填项目</small>
+					</div>
+				</div>
+				<div class="modal-footer text-left">
+					<button type="submit" class="btn btn-primary btn-block">确认</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal modal-primary fade" id="coupon">
+	<div class="modal-dialog modal-left" style="width: 630px">
+		<div class="modal-content">
+			<form action="#" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+				<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+					<h4 class="modal-title">温馨提示</h4>
+				</div>
+				<div class="modal-body padding-bottom-0">
+					<p class="alert alert-danger" id="coupon_text"></p>
+				</div>
+				<div class="modal-footer text-left">
+					<a href="#"><button type="button" class="btn btn-primary btn-block">点击查看</button></a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal modal-primary fade" id="onekeyinstall_modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="#" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+				<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+					<h4 class="modal-title">一键安装（官方购买主机无需一键安装）</h4>
+				</div>
+				<div class="modal-footer text-left">
+					<button type="button" class="btn btn-primary btn-block submit_install">确认</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal modal-primary fade" id="tem-change">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<form action="https://app.metinfo.cn/index.php?n=site&amp;c=tryout&amp;a=dochange_template&amp;strcode=5aefb50bf322u734bd5d603cntdd5d9bz6907f7f%24M%241535881331%24M%24eyJ1c2VyX2lkIjoiZ3Vvemhlbnl1MTEyQDE2My5jb20iLCJwbGFjZSI6ImFjY291bnQifQ%3D%3D%24M%241" name="tem-change" method="POST" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+				<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+					<h4 class="modal-title">换套模板</h4>
+				</div>
+				<div class="modal-body">
+					<input type="hidden" name="sitename" value="" />
+					<input type="hidden" name="skin_name" value="" />
+					<input type="hidden" name="skin_num" value="" />
+					<input type="hidden" name="tem_url" value="" />
+					<ul class="nav nav-tabs nav-tabs-line">
+						<li class="active"><a href="#tem-used" data-toggle="tab" data-get="tem-used">使用过的模板</a></li>
+						<li><a href="#tem-use" data-toggle="tab" data-get="tem-use">未使用的模板</a></li>
+						<div class="pull-right">
+							<span class="red-600 margin-right-10">替换模板后网站所有数据将恢复出厂设置！</span>
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="submit" class="btn btn-primary margin-left-10">确认更换</button>
+						</div>
+					</ul>
+					<div class="tab-content text-center margin-top-10">
+						<section class="tab-pane clearfix active" id="tem-used" data-url="#">
+						</section>
+						<section class="tab-pane clearfix" id="tem-use">
+							<div class="alert alert-danger margin-bottom-10">
+								温馨提示：每个用户可以免费试用 5 个站点 10 套模板，你在正式购买前还可以更换
+								<span class="tryout-temcando-num"></span> 套模板，请确认！
+							</div>
+							<button type="button" class="btn btn-primary tem-use" data-url="#">明白了，立即更换新模板</button>
+							<div class="height-500 vertical-align text-center tem-use-loader" hidden="">
+								<div class="loader vertical-align-middle loader-default"></div>
+							</div>
+							<iframe data-src="https://www.metinfo.cn/product/index.php?head_foot_hide=1&amp;tem_change=1&amp;no_online=1" frameborder="0" width="100%" height="500" class="tem-change-iframe" id="tem-change-iframe" hidden="" style="height: 500px;"></iframe>
+						</section>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal modal-primary fade" id="tryout-to-buy">
+	<div class="modal-dialog modal-sm modal-center">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+				<h4 class="modal-title">购买</h4>
+			</div>
+			<div class="modal-body padding-bottom-0">
+				<p class="alert alert-danger margin-bottom-0">你在购买流程中可以转正试用的整站，也可以单独购买模板和商业授权，并可以在购买流程中新注册域名。</p>
+			</div>
+			<div class="modal-footer">
+				<a href="" target="_blank" class="btn btn-primary btn-block dismiss-modal">知道了，我要继续</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div th:replace="background/backFoot :: html"></div>
+<script src="/static/js/account.js"></script>
+<!--<script type="text/javascript">-->
+    <!--var user_id = '';-->
+    <!--(function() {-->
+        <!--var hm = document.createElement("script");-->
+        <!--var souhu = document.createElement("script");-->
+        <!--hm.type = "text\/javascript";-->
+        <!--souhu.type = "text\/javascript";-->
+        <!--hm.src = "https://track.metinfo.cn/js/track.js";-->
+        <!--souhu.src = "https://pv.sohu.com/cityjson?ie=utf-8";-->
+        <!--var souhud = document.getElementsByTagName("script")[0];-->
+        <!--var s = document.getElementsByTagName("script")[0];-->
+        <!--souhud.parentNode.insertBefore(souhu, souhud);-->
+        <!--s.parentNode.insertBefore(hm, s);-->
+    <!--})();-->
+<!--</script>-->
+<div>
+	<div class="sweet-overlay" tabindex="-1"></div>
+	<div class="sweet-alert" tabindex="-1">
+		<div class="icon error">
+			<span class="x-mark"><span class="line left"></span><span class="line right"></span></span>
+		</div>
+		<div class="icon warning">
+			<span class="body"></span>
+			<span class="dot"></span>
+		</div>
+		<div class="icon info"></div>
+		<div class="icon success">
+			<span class="line tip"></span>
+			<span class="line long"></span>
+			<div class="placeholder"></div>
+			<div class="fix"></div>
+		</div>
+		<div class="icon custom"></div>
+		<h2>Title</h2>
+		<p class="lead text-muted">Text</p>
+		<p><button class="cancel btn btn-lg" tabindex="2">Cancel</button> <button class="confirm btn btn-lg" tabindex="1">OK</button></p>
+	</div>
+</div>
+<!--<div class="met-online">-->
+	<!--<ul class="blocks">-->
+		<!--<li><button type="button" class="btn btn-icon btn-info btn-squared font-size-30" id="btn-meqia" title="在线客服" onclick="_MEIQIA._SHOWPANEL()"><i class="icon w-30 fa-commenting" aria-hidden="true"></i></button></li>-->
+		<!--<li><a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4000084433&amp;aty=0&amp;a=0&amp;curl=&amp;ty=1" title="QQ客服" class="btn btn-icon btn-info btn-squared font-size-30" target="_blank"><i class="icon w-30 fa-qq" aria-hidden="true"></i></a></li>-->
+		<!--<li><a href="https://account.metinfo.cn/profile/process/" title="售后工单" class="btn btn-icon btn-info btn-squared font-size-30" target="_blank"><i class="icon w-30 fa-wrench" aria-hidden="true"></i></a></li>-->
+		<!--<li><button type="button" class="btn btn-icon btn-info btn-squared font-size-30 met-scroll-top" title="返回顶部" onclick="goTop()"><i class="icon w-30 wb-chevron-up" aria-hidden="true"></i></button></li>-->
+	<!--</ul>-->
+<!--</div>-->
+<!--<div id="MEIQIA-PANEL-HOLDER">
+	<iframe id="MEIQIA-IFRAME" src="https://new-api.meiqia.com/dist/desktop-fiesta.html?s8raez2kyhn" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+</div>-->
+<script src="https://account.metinfo.cn/templates/account/min/js/online.js?5" type="text/javascript"></script>
+</body>
+</html>

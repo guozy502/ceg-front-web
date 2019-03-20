@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ceg.mapper.GameRecordEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.ceg.pojo.GameRecordEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="game_name" property="gameName" jdbcType="VARCHAR" />
+    <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
+    <result column="logout_time" property="logoutTime" jdbcType="TIMESTAMP" />
+    <result column="game_mode" property="gameMode" jdbcType="VARCHAR" />
+    <result column="score" property="score"  jdbcType="INTEGER" />
+    <result column="accuracy" property="accuracy" jdbcType="INTEGER" />
+    <result column="type" property="type"  jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, game_name, login_time, logout_time,game_mode,score,accuracy,type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from game_record
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ceg.pojo.GameRecordEntity" >
+    update game_record
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="gameName != null" >
+        game_name = #{gameName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        logoin_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        logout_time = #{logoutTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gameMode != null" >
+        game_mode = #{gameMode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectGameRecordByUserId" parameterType="com.ceg.pojo.GameRecordEntity" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from game_record
+    where 1=1
+    <if test="userId != null">
+      and user_id = #{userId,jdbcType=BIGINT}
+    </if>
+  </select>
+  <select id="queryGameRecordList" parameterType="com.ceg.dto.GameRecordDto" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />,TIMESTAMPDIFF(SECOND,login_time,logout_time) as timeDifference
+    from game_record
+    where 1=1
+    <if test="userId != null">
+      and user_id = #{userId,jdbcType=BIGINT}
+    </if>
+    <if test="gameId != null">
+      and  game_name = #{gameName,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+  <select id="queryGameSumTimeByUserId" parameterType="com.ceg.pojo.GameRecordEntity" resultType="com.ceg.dto.GameRecordDto">
+    SELECT COUNT(sg.time) as weekCount, sum(sg.time) as weekSumTime from(
+    SELECT  gr.id ,TIMESTAMPDIFF(MINUTE,login_time,logout_time) as time
+        FROM game_record as gr
+        WHERE 1=1 AND  MONTH(gr.logout_time) = MONTH(CURDATE())
+          AND  WEEK(gr.logout_time) = WEEK(CURDATE())
+          AND gr.user_id = #{userId,jdbcType=BIGINT} ) as sg
+  </select>
+</mapper>

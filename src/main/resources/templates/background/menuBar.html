@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单</title>
+</head>
+<body>
+<div class="site-menubar padding-top-20">
+    <div class="site-menubar-body">
+        <div>
+            <div>
+                <ul class="site-menu">
+                    <!--<li class="site-menu-item ">-->
+                        <!--<a th:href="@{/ceg/user/background/setting}" rel="nofollow" title="进入用户中心" data-username="guozhenyu112@163.com" data-email="guozhenyu112@163.com" class="navbar-avatar user_name" sytle=""> <span class="avatar avatar-online">-->
+                            <!--<img src="https://img.metinfo.cn/?username=guozhenyu112@163.com" alt="guozhenyu112@163.com"><p th:text="${currentUser.userName}"></p></span>-->
+                    <!--</a></li>-->
+                    <li class="site-menu-item "> <a th:href = "@{/ceg/user/background/myCase}"  title="病例信息"> <i class="site-menu-icon pe-portfolio" aria-hidden="true"></i><span class="site-menu-title">病例信息</span> </a> </li>
+                    <li class="site-menu-item "> <a th:href = "@{/ceg/user/background/myData}" title="数据统计"> <i class="site-menu-icon icon pe-star" aria-hidden="true"></i><span class="site-menu-title">数据统计</span> </a> </li>
+                    <li class="site-menu-item "> <a th:href = "@{/ceg/user/background/myInformation}" title="我的消息"> <i class="site-menu-icon icon pe-help2"></i><span class="site-menu-title">我的消息</span> </a> </li>
+                    <li class="site-menu-item"><a th:href = "@{/ceg/user/background/myAccount}"><i class="site-menu-icon icon pe-help2"></i><span class="site-menu-title">我的账户</span></a>
+                        <!--<ul class="sub-site-menu-item"><a  th:href = "@{/ceg/user/background/myPay}" title="充值信息"> <i class="site-menu-icon icon pe-help2"></i><span class="site-menu-title">我的账户&#45;&#45;充值</span></a></ul>-->
+                        <!--<ul class="sub-site-menu-item"><a  th:href = "@{/ceg/user/background/myConsumer}"  title="消费记录"> <i class="site-menu-icon icon pe-help2"></i><span class="site-menu-title">消费记录</span></a></ul>-->
+                    </li>
+                    <!--<li class="site-menu-item "> <a href="#" title="未完成订单"> <i class="site-menu-icon icon pe-note2" aria-hidden="true"></i><span class="site-menu-title">未完成订单</span> </a> </li>-->
+                    <!--<li class="site-menu-item "> <a href="#" title="未完成订单"> <i class="site-menu-icon icon pe-note2" aria-hidden="true"></i><span class="site-menu-title"></span> </a> </li>-->
+                </ul>
+                <div class="site-menubar-footer">
+                    <a th:href="@{/ceg/user/background/setting}" class="fold-show " data-placement="top" data-toggle="tooltip" data-original-title="账户设置"> <i class="icon wb-settings" aria-hidden="true"></i> </a>
+                    <a th:href="@{/ceg/user/logout}" data-placement="top" data-toggle="tooltip" data-original-title="退出登录"> <i class="icon wb-power" aria-hidden="true"></i> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

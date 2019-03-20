@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+ <title>成功案例-详情</title>
+ <link rel="icon" href="/static/image/title_img.ico"/>
+ <meta name="renderer" content="webkit" />
+ <meta charset="utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0,minimal-ui" />
+ <meta name="format-detection" content="telephone=no" />
+ <meta name="description" content="网站描述，一般显示在搜索引擎搜索结果中的描述文字，用于介绍网站，吸引浏览者点击。" />
+ <meta name="keywords" content="医疗机械网站制作|医疗机械网站建设" />
+ <link rel="stylesheet" type="text/css" href="/static/css/basic.css" />
+ <link rel="stylesheet" type="text/css" href="/static/css/news.css" />
+ <script charset="utf-8" data-require-id="embed/webimlight/main" src="/static/js/main.js"></script>
+</head>
+<body class="met-navfixed   ny-nobanner">
+<header class="met-head navbar-fixed-top" m-id="1" m-type="head_nav">
+ <div id="tophead" style="display: block;">
+  <div class="container">
+   <div class="row">
+    <div class="col-sm-12">
+     <div class="tophead-contact pull-xs-left">
+      <ul class="m-0 p-0">
+       <li> <i class="fa fa-phone" aria-hidden="true"></i><a href="tel:">0731-00000000</a></li>
+       <li> <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:">email@email.mt</a></li>
+      </ul>
+     </div>
+     <div class="tophead-right tophead-address pull-xs-right">
+      <i class="fa fa-map-marker" aria-hidden="true"></i>
+      <span>辽宁沈阳市浑南区</span>
+     </div>
+     <div class="clear"></div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <nav class="navbar navbar-default box-shadow-none head_nav_met_16_2">
+  <div class="container">
+   <div class="row">
+    <h1 hidden="">答疑详情页</h1>
+    <!-- logo -->
+    <div th:replace="log :: html"></div>
+    <!-- logo -->
+    <button type="button" class="navbar-toggler hamburger hamburger-close collapsed p-x-5 head_nav_met_16_2-toggler" data-target="#head_nav_met_16_2-collapse" data-toggle="collapse"> <span class="sr-only"></span> <span class="hamburger-bar"></span> </button>
+    <!-- 导航 -->
+    <div th:replace="navigation :: html"></div>
+    <!-- 导航 -->
+   </div>
+  </div>
+ </nav>
+</header>
+<main class="product_list_detail_met_16_1 page met-showproduct pagetype1" m-id="28">
+ <div class="met-showproduct-head page-content block-bg">
+  <div class="container">
+   <div class="row">
+    <div class="col-lg-7">
+     <div class="met-showproduct-list fngallery cover text-xs-center    " id="met-imgs-slick" m-id="noset"
+          m-type="displayimgs">
+      <!--fngallery：启用lightGallery插件的类名-->
+      <div class="slick-slide">
+       <a th:href="${patientCaseEntity.imgUrl}" data-size="640x480" th:data-med="${patientCaseEntity.imgUrl}" data-med-size="640x480" class="lg-item-box"   data-sub-html="#">
+        <!--类名lg-item-box之前为initPhotoSwipeFromDOM插件所用参数；之后为lightGallery插件所用参数，lg-item-box：lightGallery插件对应的类名-->
+        <img th:src="${patientCaseEntity.imgUrl}" class="img-fluid" th:alt="${patientCaseEntity.patientName}" style="width: 460px;height: 300px"> </a>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg-5">
+     <div class="product-intro">
+      <h1 class="m-t-0 font-size-24" th:text="'姓名：'+${patientCaseEntity.patientName}"></h1>
+      <p class="description" th:text="'性别：'+${patientCaseEntity.sex}"></p>
+      <p class="description" th:text="'年龄：'+${patientCaseEntity.age}"></p>
+      <p class="description" th:text="${'训练前视力：'+patientCaseEntity.beforeSight}"></p>
+      <p class="description" th:text="'训练后视力：'+${patientCaseEntity.afterSight}"></p>
+      <p class="description" th:text="'病例类型：'+${patientCaseEntity.caseType}"></p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="met-showproduct-body page-content">
+  <div class="container">
+   <div class="row">
+    <!-- 内容选项卡 -->
+    <div class="col-lg-9  pull-lg-right" style="width: 100%;height: auto">
+     <div class="row">
+      <div class="panel panel-body m-b-0 product-detail" boxmh-mh="" style="min-height: 1122px;">
+       <ul class="nav nav-tabs nav-tabs-line m-b-20 met-showproduct-navtabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#product-content0"
+                                data-get="product-details">病例详情</a></li>
+        <!--<li class="nav-item"><a class="nav-link " data-toggle="tab" href="#product-content1" data-get="product-details">技术参数</a></li>-->
+       </ul>
+       <article class="tab-content">
+        <section class="tab-pane met-editor clearfix animation-fade active" id="product-content0">
+         <p><span th:utext="${patientCaseEntity.content}"></span>
+         </p>
+        </section>
+        <section class="tab-pane met-editor clearfix animation-fade" id="product-content1">
+         <p><br/></p>
+        </section>
+        <div class="tag">
+         <span></span>
+         <a href="" title=""></a>
+        </div>
+       </article>
+      </div>
+     </div>
+    </div>
+    <!-- 内容选项卡 -->
+    <!-- 产品侧栏 -->
+    <!--<div class="col-lg-3 ">-->
+     <!--<div class="row">-->
+      <!--<aside class="panel panel-body m-b-0 product-hot met-sidebar     leftsidebar" boxmh-h="" data-height="1122">-->
+       <!--<div class="sidebar-piclist">-->
+        <!--<h3 class="m-0 font-size-16 font-weight-300">为您推荐</h3>-->
+        <!--<ul id="recommendId" class="blocks-2 blocks-md-3 blocks-lg-100 m-t-20 text-xs-center imagesize sidebar-piclist-ul" data-scale="480x640">-->
+        <!--</ul>-->
+       <!--</div>-->
+      <!--</aside>-->
+     <!--</div>-->
+    <!--</div>-->
+    <!-- 产品侧栏 -->
+   </div>
+  </div>
+ </div>
+</main>
+<!-- 标准模式 -->
+<div th:replace="section :: html"></div>
+<div th:replace="foot :: html"></div>
+<div th:replace="weiXinInfo :: html"></div>
+</body>
+</html>

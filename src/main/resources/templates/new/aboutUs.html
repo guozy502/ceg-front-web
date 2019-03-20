@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>广州视景医疗软件有限公司简介 - 多宝视</title>
+    <meta name="keywords" content="关于我们">
+    <meta name="description" content="关于我们">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="/static/image/title_img.ico"/>
+    <link rel="stylesheet" href="/static/new/css/public.css" type="text/css">
+    <link rel="stylesheet" href="/static/new/css/intro.css" type="text/css">
+    <script src="//hm.baidu.com/hm.js?fb856ed1a7aea555deb7013403c93a7a"></script><script type="text/javascript" src="/static/new/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/new/js/jquery.SuperSlide.js"></script><script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fb856ed1a7aea555deb7013403c93a7a";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</head>
+<body>
+<div th:replace="new/head :: html"></div>
+<div th:replace="new/navigation :: html"></div>
+<script type="text/javascript">
+    $(".down_box").mouseover(function(){
+        $(".Down").show();
+    }).mouseout(function(){
+        $(".Down").hide();
+    });
+</script>
+<div class="mains">
+    <div class="mainbox w1000">
+        <div class="list f-l">
+            <h2>关于我们</h2>
+            <div class="list_box">
+                <ul><li class="on"><a href="/shijing.php">公司简介</a></li><li><a href="/news.php">新闻动态</a></li><li><a href="/culture.php">企业文化</a></li><li><a href="/honour.php">资质证书</a></li><li><a href="/pay.php">付款方式</a></li><li><a href="/job.php">人才招聘</a></li><li><a href="/contact.php">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="boom f-r">
+            <h1>沈阳贝视优软件有限公司</h1>
+            <div class="message_box" style="padding-top:0px;">
+                <p><img src="/static/img/shijing201803.png"></p>
+                <p>　　广州视景医疗软件有限公司成立于2008年，是一家专注于视觉训练网络医疗平台、VR技术的开发与应用以及智能医疗生态链搭建的创新型科技企业。我们先后获得了国家软件企业认证、国家科技部创新基金立项及高新技术企业认证等称号。</p>
+                <p>　　“成为最受信赖的视觉健康企业”是视景医疗公司的愿景。在“聚焦品质、精益求精”的理念下，视景医疗紧跟科技发展的步伐，一直致力于视觉训练网络医疗平台的研发与创新。以自主专利技术为核心，以大数据网络云平台为技术支撑，结合多媒体生物信息刺激的知觉学习项目——多宝视视觉训练平台，已为数万患者提供优质、有效的视觉训练，帮助更多视觉功能障碍患者重获健康视觉。</p>
+                <p>　　自创立以来，视景医疗凭借领先的业务模式，完善的营销服务网络，赢得了业界及市场的良好口碑。截至2017年底，公司已与全国近300家知名医院建立了稳定的合作关系。同时我们也非常注重核心技术的研发与创新，目前已提交发明专利申请9项，拥有发明专利授权2项，软件著作权14项。</p>
+                <p>　　“成就客户，专注专业，务实进取，开放创新”是我们的价值观，专一服务于眼健康市场，以开放合作的心态为行业赋能，互惠互利实现共赢发展。未来，在互联网+医疗的大趋势下，公司将进一步为眼视光和小儿眼科行业提供更新、更智能化的云医疗产品及服务，为眼健康行业的发展添砖加瓦，和业界伙伴一起推动眼科行业的革新发展。</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<!--<div id="upBtn" class="upBtn">
+	<a target="_blank" href="http://www.topeye.cn/hd/huma/?float"><img src="http://www.topeye.cn/hd/huma/huma.gif"></a>
+</div>
+<style>
+#upBtn { width:143px; height:90px; position: fixed; bottom:100px; right:15px; z-index:999999px; }
+</style>-->
+<div th:replace="new/foot :: html"></div>
+<link href="/static/new/css/thickbox.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/static/new/js/thickbox.js"></script>
+<script type="text/javascript" src="/static/new/js/kefu.js"></script>
+<div class="kefubox cloneobj" style="width: 171px; height: 357px; right: 0px; position: fixed; z-index: 2147483647; top: 115px;">
+    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3538309612&amp;site=qq&amp;menu=yes" target="_blank"><img src="/static/image/kefu_weixin.jpg" width="171" height="357"></a>
+</div>
+<script type="text/javascript">
+    var uid = 0;
+    var user_type = "";
+    var is_login = 1;
+    if(uid < 1){
+        is_login = 0;
+    }
+    function update_user_guide() {
+        if(is_login == 1) {
+            $.get('/ajax.php?action=update_user_guide', function(data){
+                if(data != '') $("#user_guide").html(data);
+            });
+        } else {
+            location.href = location.href; return false;
+            $("#user_guide").html('您好！欢迎来到多宝视！[<a href="/user/ajax_login.php?KeepThis=true&TB_iframe=true&height=250&width=320" class="thickbox" title="登录多宝视">登录</a>]');
+        }
+    }
+    function user_logout() {
+        $.get('/ajax.php?action=ajax_logout', function(data){
+            if(data == 1) {
+                if(location.href.indexOf("/user") > 0) {
+                    location.href = "/";
+                }
+                is_login = 0;
+                update_user_guide();
+            }
+        });
+    }
+    var color = 0;
+    //time_color();
+    function change_color() {
+        color++;
+        if(color%2==1) $("#ty").css("color","#ff0000");
+        else $("#ty").css("color","#000000");
+        time_color();
+    }
+    function time_color() {
+        setTimeout("change_color()", 100);
+    }
+    $('a.weixin').click(function(){
+        $('div.wx_drop').show();
+        event.stopPropagation();
+    });
+    $(document).click(function(){
+        $("div.wx_drop").click(function(){
+            return;
+        });
+        $("div.wx_drop").hide();
+    });
+    $("#nav").slide({
+        defaultIndex:false,
+        type:"menu",// 效果类型，针对菜单/导航而引入的参数（默认slide）
+        titCell:".nLi", //鼠标触发对象
+        targetCell:".sub", //titCell里面包含的要显示/消失的对象
+        effect:"slideDown", //targetCell下拉效果
+        delayTime:300 , //效果时间
+        triggerTime:0, //鼠标延迟触发时间（默认150）
+        returnDefault:true //鼠标移走后返回默认状态
+    });
+</script>
+</body></html>

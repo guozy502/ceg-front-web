@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.mains{}
+	.top_adress{ width:100%; float:right; overflow:hidden; margin-top:14px; border-bottom:1px solid #e0e0e0;}
+		.top_adress a{ font-size:12px; color:#545454; height:38px; line-height:38px;}
+		.top_adress a:hover{ text-decoration:underline;}
+		.top_adress	.search_box{ width:141px; /* ie6 */ height:38px; line-height:38px; _width:145px; _height:38px; _margin-top:-32px;}
+		.top_adress .search_box input{ width:119px; height:19px; line-height:19px; background:#e7e7e7; border:1px solid #e3e3e3; box-sizing:border-box; margin-right:3px;}
+		.top_adress .search_box button{ border:none; width:19px; height:19px; margin-top:10px; background:url(../img/search_icon.jpg) no-repeat; float:right; _margin-top:-21px; /* ie6 */}
+		
+		/*
+	.wenzhang,.tuijian{ margin-bottom:70px;}
+	.wenzhang{ width:73%; height:auto;}
+		.wenzhang_box{ }
+			.wenzhangs{ overflow:hidden; border-bottom:1px dashed #dcdcdc; padding:23px 0;}
+			.wenzhangs:hover{ background:#f4f4f4;}
+			.lasts{ border-bottom:1px solid #dcdcdc;}
+				.wenzhangs .wenzhang_msg{}
+					.wenzhang_msg h3 a{ color:#333; }
+					.wenzhang_msg h3 a:hover{ color:#ff0000; }
+					.wenzhang_msg h3{ font-size:20px; line-height: 30px; font-weight:bold; color:#000;}
+					.wenzhang_msg p{ font-size:14px; color:#585858; text-indent:0em; line-height:25px; text-align:left; width:auto; padding:7px 0;}
+					.wenzhang_msg p span a{ color:#39a305;}
+					.wenzhang_msg p span a:hover{ color:#1c5500;} 
+					.wenzhang_msg h4{ color:#99a196;}
+		*/
+
+.wenzhang,.tuijian{ padding-bottom:70px; _margin-top:-17px; _padding-bottom:53px;}
+	.wenzhang{ width:73%; height:auto; }
+		.wenzhang_box{ }
+			.wenzhangs{ overflow:hidden; height:auto; width:730px; border-bottom:1px dashed #dcdcdc; padding:23px 0; }
+			.wenzhangs:hover{ background:#f4f4f4;}
+			.lasts{ border-bottom:1px solid #dcdcdc;}
+				.wenzhangs .wenzhang_msg{ margin-left:16px;}
+					.wenzhang_msg h3{ font-size:18px; font-weight:bold; color:#000;}
+					.wenzhang_msg p{ font-size:14px; color:#585858; text-indent:0em; line-height:25px; text-align:left; width:auto; padding:7px 0; _width:490px;}
+					.wenzhang_msg p span a{ color:#39a305;}
+					.wenzhang_msg p span a:hover{ color:#1c5500;} 
+					.wenzhang_msg h4{ color:#99a196;}
+			
+					
+			
+.list_fy{height:50px; text-align:center;font-size:16px;clear:both; line-height:50px;margin-top:30px;}
+.list_fy a{color:#00BC3E; text-decoration:none;}
+.list_fy a:hover{color:#00BC3E; text-decoration:none;}
+.multipage {margin-bottom: 10px;}
+.p_bar {clear: both;}
+.p_bar a {font-size: 16px;text-decoration: none;padding: 3px 6px;}
+.p_bar a:hover {background: #00CE44;border: 1px solid #00BC3E;text-decoration: none;color:#fff;}
+.p_info {background: #fff;border: 1px solid #eee;margin-right: 3px;padding: 3px 6px;color: #333;}
+.p_num {background: #eee;border: 1px solid #efefef;margin-right:3px;}
+.p_curpage {margin-right:3px;border: 1px solid #00BC3E;background: #00BC3E;color: #fff;font-weight:bold;padding: 3px 6px;}
+
+.no_content{font-size:24px; text-align:center; padding:50px; color:#666;}
+			
+	.tuijian{ width:24%; height:auto; overflow:hidden;}
+		.tuijian .tuijian_box{}
+			.tuijian_box .titles{ border-bottom:1px solid #d0d0d0; padding-top:17px; height:40px; overflow:hidden;}
+				.titles h2{ display:inline; font-size:16px; font-weight:bold; color:#000; line-height:40px; text-align:left; float:left;}
+				.tuijian_box ul{ margin-top:8px; margin-bottom:7px;}
+					.tuijian_box ul li{ height:30px; width:230px; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+					.tuijian_box ul li a{ color:#585858; line-height:30px; text-align:left; padding-left:4px; }
+					.tuijian_box ul li a:hover{ color:#39a305; text-decoration:underline;}

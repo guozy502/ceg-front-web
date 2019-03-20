@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ceg.mapper.GameEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.ceg.pojo.GameEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="game_name" property="gameName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="game_type" property="gameType" jdbcType="VARCHAR" />
+    <result column="game_type" property="gameType" jdbcType="VARCHAR" />
+    <result column="android_package_name" property="androidPackageName" jdbcType="VARCHAR" />
+    <result column="android_url" property="androidUrl" jdbcType="VARCHAR" />
+    <result column="android_apk_name" property="androidApkName" jdbcType="VARCHAR" />
+    <result column="android_version" property="androidVersion" jdbcType="VARCHAR" />
+    <result column="android_isforce_update" property="androidIsforceUpdate" jdbcType="BIT" />
+    <result column="android_maintain_startTime" property="androidMaintainStarttime" jdbcType="TIMESTAMP" />
+    <result column="android_maintain_endTime" property="androidMaintainEndtime" jdbcType="TIMESTAMP" />
+    <result column="ios_packgae_name" property="iosPackgaeName" jdbcType="VARCHAR" />
+    <result column="ios_url" property="iosUrl" jdbcType="VARCHAR" />
+    <result column="ios_version" property="iosVersion" jdbcType="VARCHAR" />
+    <result column="ios_isforce_update" property="iosIsforceUpdate" jdbcType="BIT" />
+    <result column="ios_maintain_startTime" property="iosMaintainStarttime" jdbcType="TIMESTAMP" />
+    <result column="ios_maintain_endTime" property="iosMaintainEndtime" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, game_name, create_time, update_time, game_type, android_package_name, android_url, 
+    android_apk_name, android_version, android_isforce_update, android_maintain_startTime, 
+    android_maintain_endTime, ios_packgae_name, ios_url, ios_version, ios_isforce_update, 
+    ios_maintain_startTime, ios_maintain_endTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from game
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from game
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ceg.pojo.GameEntity" >
+    insert into game (id, game_name, create_time, 
+      update_time, game_type, android_package_name, 
+      android_url, android_apk_name, android_version, 
+      android_isforce_update, android_maintain_startTime, 
+      android_maintain_endTime, ios_packgae_name, 
+      ios_url, ios_version, ios_isforce_update, 
+      ios_maintain_startTime, ios_maintain_endTime
+      )
+    values (#{id,jdbcType=BIGINT}, #{gameName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{gameType,jdbcType=VARCHAR}, #{androidPackageName,jdbcType=VARCHAR}, 
+      #{androidUrl,jdbcType=VARCHAR}, #{androidApkName,jdbcType=VARCHAR}, #{androidVersion,jdbcType=VARCHAR}, 
+      #{androidIsforceUpdate,jdbcType=BIT}, #{androidMaintainStarttime,jdbcType=TIMESTAMP}, 
+      #{androidMaintainEndtime,jdbcType=TIMESTAMP}, #{iosPackgaeName,jdbcType=VARCHAR}, 
+      #{iosUrl,jdbcType=VARCHAR}, #{iosVersion,jdbcType=VARCHAR}, #{iosIsforceUpdate,jdbcType=BIT}, 
+      #{iosMaintainStarttime,jdbcType=TIMESTAMP}, #{iosMaintainEndtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ceg.pojo.GameEntity" >
+    insert into game
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gameName != null" >
+        game_name,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="gameType != null" >
+        game_type,
+      </if>
+      <if test="androidPackageName != null" >
+        android_package_name,
+      </if>
+      <if test="androidUrl != null" >
+        android_url,
+      </if>
+      <if test="androidApkName != null" >
+        android_apk_name,
+      </if>
+      <if test="androidVersion != null" >
+        android_version,
+      </if>
+      <if test="androidIsforceUpdate != null" >
+        android_isforce_update,
+      </if>
+      <if test="androidMaintainStarttime != null" >
+        android_maintain_startTime,
+      </if>
+      <if test="androidMaintainEndtime != null" >
+        android_maintain_endTime,
+      </if>
+      <if test="iosPackgaeName != null" >
+        ios_packgae_name,
+      </if>
+      <if test="iosUrl != null" >
+        ios_url,
+      </if>
+      <if test="iosVersion != null" >
+        ios_version,
+      </if>
+      <if test="iosIsforceUpdate != null" >
+        ios_isforce_update,
+      </if>
+      <if test="iosMaintainStarttime != null" >
+        ios_maintain_startTime,
+      </if>
+      <if test="iosMaintainEndtime != null" >
+        ios_maintain_endTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gameName != null" >
+        #{gameName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gameType != null" >
+        #{gameType,jdbcType=VARCHAR},
+      </if>
+      <if test="androidPackageName != null" >
+        #{androidPackageName,jdbcType=VARCHAR},
+      </if>
+      <if test="androidUrl != null" >
+        #{androidUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="androidApkName != null" >
+        #{androidApkName,jdbcType=VARCHAR},
+      </if>
+      <if test="androidVersion != null" >
+        #{androidVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="androidIsforceUpdate != null" >
+        #{androidIsforceUpdate,jdbcType=BIT},
+      </if>
+      <if test="androidMaintainStarttime != null" >
+        #{androidMaintainStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="androidMaintainEndtime != null" >
+        #{androidMaintainEndtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iosPackgaeName != null" >
+        #{iosPackgaeName,jdbcType=VARCHAR},
+      </if>
+      <if test="iosUrl != null" >
+        #{iosUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="iosVersion != null" >
+        #{iosVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="iosIsforceUpdate != null" >
+        #{iosIsforceUpdate,jdbcType=BIT},
+      </if>
+      <if test="iosMaintainStarttime != null" >
+        #{iosMaintainStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iosMaintainEndtime != null" >
+        #{iosMaintainEndtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ceg.pojo.GameEntity" >
+    update game
+    <set >
+      <if test="gameName != null" >
+        game_name = #{gameName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gameType != null" >
+        game_type = #{gameType,jdbcType=VARCHAR},
+      </if>
+      <if test="androidPackageName != null" >
+        android_package_name = #{androidPackageName,jdbcType=VARCHAR},
+      </if>
+      <if test="androidUrl != null" >
+        android_url = #{androidUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="androidApkName != null" >
+        android_apk_name = #{androidApkName,jdbcType=VARCHAR},
+      </if>
+      <if test="androidVersion != null" >
+        android_version = #{androidVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="androidIsforceUpdate != null" >
+        android_isforce_update = #{androidIsforceUpdate,jdbcType=BIT},
+      </if>
+      <if test="androidMaintainStarttime != null" >
+        android_maintain_startTime = #{androidMaintainStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="androidMaintainEndtime != null" >
+        android_maintain_endTime = #{androidMaintainEndtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iosPackgaeName != null" >
+        ios_packgae_name = #{iosPackgaeName,jdbcType=VARCHAR},
+      </if>
+      <if test="iosUrl != null" >
+        ios_url = #{iosUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="iosVersion != null" >
+        ios_version = #{iosVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="iosIsforceUpdate != null" >
+        ios_isforce_update = #{iosIsforceUpdate,jdbcType=BIT},
+      </if>
+      <if test="iosMaintainStarttime != null" >
+        ios_maintain_startTime = #{iosMaintainStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iosMaintainEndtime != null" >
+        ios_maintain_endTime = #{iosMaintainEndtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="queryGameList" resultMap="BaseResultMap" parameterType="java.lang.Boolean">
+    select
+    <include refid="Base_Column_List" />
+    from game
+    where deleted = #{isTrue,jdbcType=BIT}
+  </select>
+</mapper>

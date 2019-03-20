@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <script async="" src="/static/js/meiqia.js"></script>
+    <title>用户中心-账户设置</title>
+    <meta name="renderer" content="webkit" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta name="generator" data-variable="https://account.metinfo.cn/|account|https://app.metinfo.cn/|https://www.metinfo.cn/" />
+    <link href="https://account.metinfo.cn/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/static/css/account.css" />
+    <!--<style type="text/css" id="MEIQIA-ICON-STYLE">.MEIQIA-ICON { background-size: 40px auto !important; background-repeat: no-repeat !important; background-image: url('https://static.meiqia.com/dist/images/icon-mq.png?v=s8raez2kyhn') !important; } @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min&#45;&#45;moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2) { .MEIQIA-ICON { background-image: url('https://static.meiqia.com/dist/images/icon-mq@2x.png?v=s8raez2kyhn') !important; } } .MEIQIA-ICON-CHAT1 { background-position: 0 0 !important; } .MEIQIA-ICON-CHAT2 { background-position: 0 -20px !important; } .MEIQIA-ICON-CHAT3 { background-position: 0 -40px !important; } .MEIQIA-ICON-CHAT4 { background-position: 0 -60px !important; } .MEIQIA-ICON-CHAT5 { background-position: 0 -80px !important; } .MEIQIA-ICON-CHAT6 { background-position: 0 -100px !important; } .MEIQIA-ICON-CHAT7 { background-position: 0 -120px !important; } .MEIQIA-ICON-CHAT8 { background-position: 0 -140px !important; } .MEIQIA-ICON-CHAT9 { background-position: 0 -160px !important; } .MEIQIA-ICON-CHAT10 { background-position: 0 -180px !important; } .MEIQIA-ICON-CHAT11 { background-position: 0 -200px !important; } .MEIQIA-ICON-CHAT12 { background-position: 0 -220px !important; } .MEIQIA-ICON-TICKET1 { background-position: -20px 0 !important; } .MEIQIA-ICON-TICKET2 { background-position: -20px -20px !important; } .MEIQIA-ICON-TICKET3 { background-position: -20px -40px !important; } .MEIQIA-ICON-TICKET4 { background-position: -20px -60px !important; } .MEIQIA-ICON-TICKET5 { background-position: -20px -80px !important; } .MEIQIA-ICON-TICKET6 { background-position: -20px -100px !important; } .MEIQIA-ICON-TICKET7 { background-position: -20px -120px !important; } .MEIQIA-ICON-TICKET8 { background-position: -20px -140px !important; } .MEIQIA-ICON-TICKET9 { background-position: -20px -160px !important; } .MEIQIA-ICON-TICKET10 { background-position: -20px -180px !important; } .MEIQIA-ICON-TICKET11 { background-position: -20px -200px !important; } .MEIQIA-ICON-TICKET12 { background-position: -20px -220px !important; } </style>-->
+    <!--<style type="text/css" id="MEIQIA-PANEL-STYLE">#MEIQIA-PANEL-HOLDER { position: fixed; bottom: 0;  right: 60px;  z-index: -1; width: 320px; height: 480px; padding: 0; margin: 0; overflow: hidden; visibility: hidden; background-color: transparent; box-shadow: 0 0 20px 0 rgba(0, 0, 0, .15); border: 1px solid #eee\0; *border: 1px solid #eee; } #MEIQIA-IFRAME { position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: none; width: 100% !important; height: 100% !important; border: 0; padding: 0; margin: 0; float: none; background: none; } </style>-->
+</head>
+<body class="site-menubar-unfold">
+<div th:replace="background/backNavigation :: html"></div>
+<div th:replace="background/menuBar :: html"></div>
+<div class="page profile profile_info">
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-9 col-lg-8">
+                <div class="nav-tabs-horizontal nav-tabs-inverse">
+                    <!--<ul class="nav nav-tabs nav-tabs-solid">-->
+                        <!--<li class="active"> <a href="https://account.metinfo.cn/profile/info/">账户信息</a> </li>-->
+                        <!--<li> <a href="https://account.metinfo.cn/profile/record/">消费明细</a> </li>-->
+                        <!--<li> <a href="https://account.metinfo.cn/profile/record/dorecharge/">充值</a> </li>-->
+                        <!--<li> <a href="https://account.metinfo.cn/profile/record/dounorder/">未完成订单</a> </li>-->
+                        <!--<li> <a href="https://account.metinfo.cn/profile/invoice/doinvoice_apply/">发票申请</a> </li>-->
+                        <!--<li> <a href="https://account.metinfo.cn/profile/invoice/">开票记录</a> </li>-->
+                    <!--</ul>-->
+                    <div class="tab-content">
+                        <div class="form-horizontal">
+                            <div class="form-group margin-top-20">
+                                <label class="col-sm-3 control-label"> <a class="avatar avatar-100 margin-xs-0 vertical-align headuploadimg" href="javascript:void(0)">
+                                    <img src="/static/image/12345.jpg" /> </a> </label>
+                                <div class="col-sm-9">
+                                    <a href="javascript:void(0)" class="headuploadbtn"> <i class="icon wb-upload" aria-hidden="true"></i> 上传头像 <input value=""  name="file" type="file" /> </a>
+                                    <p class="blue-grey-400 margin-bottom-0">支持上传 jpg、png、gif 格式图片，大小不超过「5Mb」。</p>
+                                </div>
+                            </div>
+                            <div class="form-group margin-top-20">
+                                <label class="col-sm-3 control-label list">用户名</label>
+                                <div class="col-sm-9 list" th:text="${currentUser.userName}">
+                                </div>
+                            </div>
+                            <div class="form-group margin-top-20">
+                                <label class="col-sm-3 control-label list">微信昵称</label>
+                                <div class="col-sm-9 list">
+                                    <a role="button" class="bind-weixin" data-toggle="modal" data-target="#bind-weixin">绑定</a>
+                                </div>
+                            </div>
+                            <div class="form-group margin-top-20">
+                                <label class="col-sm-3 control-label list">邮箱</label>
+                                <div class="col-sm-9 list" th:text="${currentUser.email}">
+                                    <!--<a href="javascript:void(0)" class="margin-left-10 emailedit">修改</a>-->
+                                </div>
+                            </div>
+                            <div class="form-group margin-top-20">
+                                <label class="col-sm-3 control-label list">手机</label>
+                                <div class="col-sm-9 list" >
+                                    <a href="javascript:void(0)" class="margin-left-10 teledit">修改</a>
+                                </div>
+                            </div>
+                            <div class="form-group margin-top-20">
+                                <label class="col-sm-3 control-label list">密码</label>
+                                <div class="col-sm-9 list">
+                                    <a href="javascript:void(0)" class="passedit"  data-url="/ceg/user/asynchronousModifyUserInfo">修改密码</a>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="example-wrap margin-bottom-0">
+                                <form method="post" class="form-horizontal fv-form fv-form-bootstrap" id="companyinfoedit" th:action="@{'/ceg/user/synchronousModifyUser'}" novalidate="novalidate">
+                                    <button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">联系人</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" value="" name="linkName" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">身份证号</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" value="" name="idNumber" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">住址</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" name="address" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group margin-bottom-0">
+                                        <label class="col-sm-3 control-label"></label>
+                                        <div class="col-sm-8">
+                                            <button type="submit" class="btn btn-primary">保存</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal modal-primary fade" id="emailedit">
+    <div class="modal-dialog modal-sm modal-center">
+        <div class="modal-content">
+            <form action="#" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+                <button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">修改绑定邮箱</h4>
+                </div>
+                <div class="modal-body padding-bottom-0">
+                    <p class="blue-grey-400">我们将发送一封邮件到您的新邮箱。</p>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="请输入新邮箱地址" name="email" data-fv-notempty="true" data-fv-field="email" type="email" />
+                        <small style="display: none;" class="help-block" data-fv-validator="emailAddress" data-fv-for="email" data-fv-result="NOT_VALIDATED">请输入有效的邮件地址</small>
+                        <small style="display: none;" class="help-block" data-fv-validator="notEmpty" data-fv-for="email" data-fv-result="NOT_VALIDATED">请填写必填项目</small>
+                    </div>
+                </div>
+                <div class="modal-footer text-left">
+                    <button type="submit" class="btn btn-primary btn-block">确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal modal-primary fade" id="teledit">
+    <div class="modal-dialog modal-sm modal-center">
+        <div class="modal-content">
+            <form action="#" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+                <button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">修改绑定手机</h4>
+                </div>
+                <div class="modal-body padding-bottom-0">
+                    <div class="form-group">
+                        <input class="form-control" placeholder="请输入新手机号码" name="tel" data-fv-notempty="true" data-fv-field="tel" type="text" />
+                        <small style="display: none;" class="help-block" data-fv-validator="notEmpty" data-fv-for="tel" data-fv-result="NOT_VALIDATED">请填写必填项目</small>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input placeholder="短信验证码" class="form-control" name="userName" data-fv-notempty="true" data-fv-field="#" type="text" />
+                            <span class="input-group-btn"> <button type="button" class="btn btn-success code" action="#">获取验证码</button> </span>
+                        </div>
+                        <small style="display: none;" class="help-block" data-fv-validator="notEmpty" data-fv-for="code" data-fv-result="NOT_VALIDATED">请填写必填项目</small>
+                    </div>
+                </div>
+                <div class="modal-footer text-left">
+                    <button type="submit" class="btn btn-block btn-primary">确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal modal-primary fade" id="bind-weixin">
+    <div class="modal-dialog modal-center">
+        <div class="modal-content">
+            <form action="" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+                <button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">绑定微信</h4>
+                </div>
+                <div class="modal-footer padding-top-20 text-center row">
+                    <div class="col-xs-6">
+                        第一步：扫描关注米拓公众号
+                        <span class="red-600">（必须）</span>。
+                        <img data-src="#" width="100%" />
+                    </div>
+                    <div class="col-xs-6">
+                        第二步：扫描绑定微信号。
+                        <img data-src="#" width="100%" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.js"></script>
+<script type="text/javascript" src="/static/js/back/formValidation.min.js"></script>
+<script type="text/javascript" src="/static/js/track.js"></script>
+<div th:replace="background/backFoot :: html"></div>
+
+<script src="/static/js/account.js"></script>
+<div>
+    <div class="sweet-overlay" tabindex="-1"></div>
+    <div class="sweet-alert" tabindex="-1">
+        <div class="icon error">
+            <span class="x-mark"><span class="line left"></span><span class="line right"></span></span>
+        </div>
+        <div class="icon warning">
+            <span class="body"></span>
+            <span class="dot"></span>
+        </div>
+        <div class="icon info"></div>
+        <div class="icon success">
+            <span class="line tip"></span>
+            <span class="line long"></span>
+            <div class="placeholder"></div>
+            <div class="fix"></div>
+        </div>
+        <div class="icon custom"></div>
+        <h2>Title</h2>
+        <p class="lead text-muted">Text</p>
+        <p><button class="cancel btn btn-lg" tabindex="2">Cancel</button> <button class="confirm btn btn-lg" tabindex="1">OK</button></p>
+    </div>
+</div>
+<!--<div class="met-online">
+    <ul class="blocks">
+        <li><button type="button" class="btn btn-icon btn-info btn-squared font-size-30" id="btn-meqia" title="在线客服" onclick="_MEIQIA._SHOWPANEL()"><i class="icon w-30 fa-commenting" aria-hidden="true"></i></button></li>
+        <li><a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4000084433&amp;aty=0&amp;a=0&amp;curl=&amp;ty=1" title="QQ客服" class="btn btn-icon btn-info btn-squared font-size-30" target="_blank"><i class="icon w-30 fa-qq" aria-hidden="true"></i></a></li>
+        <li><a href="https://account.metinfo.cn/profile/process/" title="售后工单" class="btn btn-icon btn-info btn-squared font-size-30" target="_blank"><i class="icon w-30 fa-wrench" aria-hidden="true"></i></a></li>
+        <li><button type="button" class="btn btn-icon btn-info btn-squared font-size-30 met-scroll-top" title="返回顶部" onclick="goTop()"><i class="icon w-30 wb-chevron-up" aria-hidden="true"></i></button></li>
+    </ul>
+</div>-->
+<!--<div id="MEIQIA-PANEL-HOLDER">
+    <iframe id="MEIQIA-IFRAME" src="https://new-api.meiqia.com/dist/desktop-fiesta.html?s8raez2kyhn" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
+</div>-->
+<!--<script src="https://account.metinfo.cn/templates/account/min/js/online.js?5" type="text/javascript"></script>-->
+</body>
+<script type="text/javascript" src="/static/js/back/setting.js"></script>
+</html>

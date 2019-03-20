@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+ <head> 
+  <title>常识-详情页面</title>
+  <link rel="icon" href="/static/image/title_img.ico"/>
+  <meta name="renderer" content="webkit" /> 
+  <meta charset="utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0,minimal-ui" /> 
+  <meta name="format-detection" content="telephone=no" /> 
+  <meta name="description" content="为贯彻落实国家对网络安全的要求" />
+  <meta name="keywords" content="#" />
+  <link rel="stylesheet" type="text/css" href="/static/css/basic.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/showNews.css" />
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+  <script charset="utf-8" data-require-id="embed/webimlight/main" src="/static/js/main.js" async=""></script>
+ </head>
+
+ <body class="met-navfixed  ny-nobanner">
+  <header class="met-head navbar-fixed-top" m-id="1" m-type="head_nav"> 
+   <div id="tophead" style="display: block;"> 
+    <div class="container"> 
+     <div class="row"> 
+      <div class="col-sm-12"> 
+       <div class="tophead-contact pull-xs-left"> 
+        <ul class="m-0 p-0"> 
+         <li> <i class="fa fa-phone" aria-hidden="true"></i><a href="tel:">0731-00000000</a></li>
+         <li> <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:">email@email.mt</a></li> 
+        </ul> 
+       </div> 
+       <div class="tophead-right tophead-address pull-xs-right"> 
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <span>辽宁沈阳市浑南区</span>
+       </div> 
+       <div class="clear"></div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <nav class="navbar navbar-default box-shadow-none head_nav_met_16_2"> 
+    <div class="container"> 
+     <div class="row"> 
+      <h1 hidden=""></h1>
+      <!-- logo -->
+      <div th:replace="log :: html"></div>
+      <!-- logo --> 
+      <button type="button" class="navbar-toggler hamburger hamburger-close collapsed p-x-5 head_nav_met_16_2-toggler" data-target="#head_nav_met_16_2-collapse" data-toggle="collapse"> <span class="sr-only"></span> <span class="hamburger-bar"></span> </button>
+      <div th:replace="navigation :: html"></div>
+     </div>
+    </div> 
+   </nav> 
+  </header> 
+  <div class="subcolumn_nav_met_11_4" m-id="38" m-type="nocontent">
+  </div> 
+  <main class="news_list_detail_met_16_1 met-shownews animsition"> 
+   <div class="container"> 
+    <div class="row"> 
+     <div class="col-md-9 met-shownews-body" m-id="25"> 
+      <div class="row"> 
+       <section class="details-title border-bottom1"> 
+        <h1 class="m-t-10 m-b-5" th:text="${knowledgeDetail.name}"></h1>
+        <div class="info font-weight-300"> 
+         <span th:text="${#dates.format(knowledgeDetail.createTime.getTime(),'yyyy-MM-dd hh:mm:ss')}"></span>
+         <span ></span>
+         <span ><i class="icon wb-eye m-r-5" aria-hidden="true"></i><a th:text="${knowledgeDetail.readNumber}"></a></span>
+        </div>
+       </section> 
+       <section class="met-editor clearfix"> 
+       <div th:utext="${knowledgeDetail.content}"></div>
+       <div th></div>
+       </section>
+       <div class="tag"> 
+        <span></span> 
+        <a href="" title=""></a> 
+       </div> 
+       <div class="met-page p-y-30 border-top1"> 
+        <div class="container p-t-30 " id="bothKnowledgeId">
+        </div>
+       </div> 
+      </div> 
+     </div> 
+     <div class="col-md-3"> 
+      <div class="row"> 
+       <aside class="sidebar_met_16_1 met-sidebar panel panel-body m-b-0" boxmh-h="" m-id="26" m-type="nocontent">
+        <form class="sidebar-search" method="get" action="/ceg/front/getKnowledgeList">
+         <div class="form-group">
+          <div class="input-search">
+           <button type="submit" class="input-search-btn"> <i class="icon wb-search" aria-hidden="true"></i> </button>
+           <input type="text" class="form-control" name="name" placeholder="search" />
+          </div>
+         </div>
+        </form>
+        <div class="sidebar-news-list recommend"> 
+         <h3 class="font-size-16 m-0">为你推荐</h3> 
+         <ul class="list-group list-group-bordered m-t-10 m-b-0"> 
+         </ul>
+        </div> 
+       </aside> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </main>
+  <input type="hidden" id="knowledgeId" th:value="${knowledgeDetail.id}">
+  <div th:replace="section :: html"></div>
+  <div th:replace="foot :: html"></div>
+  <script src="/static/js/basic.js"></script>
+  <script src="/static/js/news.js"></script>
+ </body>
+ <script type="text/javascript">
+     var $id= $("#knowledgeId").val();
+     var obj = {"id":$id};
+     $.ajax({
+         type: "post",
+         url: "/ceg/front/getKnowledgeListBothSide",
+         dataType: "json",
+         data:JSON.stringify(obj),
+         contentType:"application/json; charset=utf-8",
+         success:function (msg) {
+             var $knowledge = msg.data;
+             if ($knowledge != null) {
+                 var $node = '<ul class="pagination block blocks-2">';
+                 for (var i in $knowledge) {
+                     var $preUrl = '#';
+                     var $preName = '已是第一页';
+                     var $nextUrl = '#';
+                     var $nextName = '已是最后一页';
+                     if ($id > $knowledge[i].id) {
+                         $preUrl = '/ceg/front/showKnowledgeDetail?id=' + $knowledge[i].id;
+                         $preName = $knowledge[i].name;
+                         $node = $node + '<li class="page-item m-b-0 "><a href="' + $preUrl + '" ' +
+                         'title="#" class="page-link text-truncate"> 上一页: <span aria-hidden="true" ' +
+                         'class="hidden-xs-down" >' + $preName + '</span> </a> </li>';
+                     }
+                     if ($id < $knowledge[i].id) {
+                         $nextUrl = '/ceg/front/showKnowledgeDetail?id=' + $knowledge[i].id;
+                         $nextName = $knowledge[i].name;
+                         $node = $node + '<li class="page-item m-b-0 "><a href="' + $nextUrl + '" ' +
+                         'title="#" class="page-link text-truncate"> 下一页: <span aria-hidden="true" ' +
+                         'class="hidden-xs-down" >' + $nextName+'</span> </a> </li>';
+                     }
+                 }
+                 $node = $node +'</ul>';
+                 $("#bothKnowledgeId").append($node);
+             }
+         }
+     });
+ </script>
+</html>

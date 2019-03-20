@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 导航 -->
+<div class="collapse navbar-collapse navbar-collapse-toolbar pull-md-right p-0" id="head_nav_met_16_2-collapse" style="max-height: 526px;">
+    <ul class="nav navbar-nav navlist">
+        <li class="nav-item">
+            <a th:href="@{/ceg/front/getMainInfoList}" title="网站首页" class="nav-link active">网站首页</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/ceg/front/getKnowledgeList}" title="学术百科" class="nav-link ">学术百科</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/ceg/front/getQuestionList}" title="使用帮助" class="nav-link ">使用帮助</a>
+        </li>
+        <li class="nav-item dropdown m-l-0">
+            <a th:href="@{/ceg/front/getNewsListByPage}" target="_self" title="新闻资讯" class="nav-link dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" aria-expanded="false">
+                新闻资讯</a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-bullet two-menu" style="">
+                <a href="#" target="_self" title="全部" class="dropdown-item nav-parent hidden-lg-up">全部</a>
+                <a href="#" target="_self" title="行业动态" class="dropdown-item border-top1 hassub ">行业动态</a>
+                <a href="#" target="_self" title="公司资讯" class="dropdown-item border-top1 hassub ">公司资讯</a>
+            </div>
+        </li>
+        <li class="nav-item m-l-0">
+            <a href="#" target="_self" title="合作机构" class="nav-link">合作机构</a>
+        </li>
+        <li class="nav-item m-l-0">
+            <a th:href="@{/ceg/partner/getPartnerPage}" target="_self" title="我要加盟" class="nav-link">我要加盟</a>
+        </li>
+        <li class="nav-item m-l-0">
+            <a th:href="@{/ceg/front/getClientSoftwareList}" target="_self" title="客户端下载" class="nav-link">客户端下载</a>
+        </li>
+        <li class="nav-item dropdown m-l-0">
+            <a th:href="@{/ceg/front/aboutMe}" target="_self" title="关于我们" class="nav-link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-expanded="false">
+                关于我们</a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-bullet two-menu">
+                <a th:href="@{/ceg/front/aboutMe}" target="_self" title="公司简介" class="dropdown-item border-top1 hassub ">公司简介</a>
+                <a href="#" target="_self" title="联系我们" class="dropdown-item border-top1 hassub ">联系我们</a>
+                <a href="#" target="_self" title="网站地图" class="dropdown-item border-top1 hassub ">网站地图</a>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- 导航 -->
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 导航 -->
+<div class="nav_box">
+    <div class="navs w1000 nav">
+        <ul id="nav">
+            <li class="nLi on">
+                <h3>
+                    <a th:href="@{/ceg/front/getMainInfoList}">首页</a></h3>
+            </li>
+            <li class="nLi">
+                <h3>
+                    <a href="/intro.php">产品介绍</a></h3>
+                <ul class="sub">
+                    <li>
+                        <a href="/p/7">网络版</a></li>
+                    <li>
+                        <a href="/p/13">产品资质</a></li>
+                </ul>
+            </li>
+            <li class="nLi">
+                <h3>
+                    <a th:href="@{/ceg/front/getKnowledgeList}">学术百科</a></h3>
+                <!--<ul class="sub">-->
+                    <!--<li>-->
+                        <!--<a href="/c/6">弱视常识</a></li>-->
+                    <!--<li>-->
+                        <!--<a href="/c/7">弱视治疗</a></li>-->
+                    <!--<li>-->
+                        <!--<a href="/c/19">眼部保健</a></li>-->
+                    <!--<li>-->
+                        <!--<a href="/c/8">验光配镜</a></li>-->
+                    <!--<li>-->
+                        <!--<a href="/c/20">弱视研究</a></li>-->
+                    <!--<li>-->
+                        <!--<a href="/c/21">典型病历</a></li>-->
+                <!--</ul>-->
+            </li>
+            <li class="nLi">
+                <h3>
+                    <a th:href="@{/ceg/front/joinUs}" target="_blank">合作加盟</a></h3>
+            </li>
+            <li class="nLi">
+                <h3>
+                    <a th:href="@{/ceg/front/aboutMe}">关于我们</a></h3>
+                <ul class="sub">
+                    <li>
+                        <a th:href="@{/ceg/front/aboutMe}">公司简介</a></li>
+                    <li>
+                        <a th:href="@{/ceg/front/getNewsListByPage}">新闻动态</a></li>
+                    <li>
+                        <a href="/culture.php">企业文化</a></li>
+                    <li>
+                        <a href="/honour.php">资质证书</a></li>
+                    <li>
+                        <a href="/pay.php">付款方式</a></li>
+                    <li>
+                        <a href="/job.php">人才招聘</a></li>
+                </ul>
+            </li>
+            <li class="nLi">
+                <h3>
+                    <a th:href="@{/ceg/front/contactUs}">联系我们</a></h3>
+            </li>
+            <li class="nLi">
+                <h3>
+                    <a th:href="@{/ceg/front/getQuestionList}">帮助中心</a></h3>
+            </li>
+            <li class="nLi">
+                <h3>
+                    <a href="/guangming/apply.php" target="_blank" style="border-right:none;">光明通道</a></h3>
+            </li>
+        </ul>
+        <div class="down_box f-r">
+            <h2>
+                <a th:href="@{/ceg/front/getClientSoftwareList}">贝视优产品下载</a></h2>
+        </div>
+    </div>
+</div>
+<!-- 导航 -->
+</body>
+</html>

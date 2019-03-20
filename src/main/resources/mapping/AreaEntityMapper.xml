@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ceg.mapper.AreaEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.ceg.pojo.AreaEntity" >
+    <id column="area_id" property="areaId" jdbcType="BIGINT" />
+    <result column="area_name" property="areaName" jdbcType="VARCHAR" />
+    <result column="father_id" property="fatherId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    area_id, area_name, father_id, create_time, update_time, deleted
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from area
+    where area_id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAreaList" resultMap="BaseResultMap" parameterType="com.ceg.dto.AreaDto" >
+    select
+    <include refid="Base_Column_List" />
+    from area
+    where 1=1
+    <if test="areaId != null">
+      and area_id = #{areaId,jdbcType=BIGINT}
+    </if>
+    <if test="areaName != null">
+      and area_name = #{areaName,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ceg.mapper.TreatPlanEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.ceg.pojo.TreatPlanEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="BIT" />
+    <result column="sinmultaneous_perception_duration" property="sinmultaneousPerceptionDuration" jdbcType="INTEGER" />
+    <result column="fusion_fountion_duration" property="fusionFountionDuration" jdbcType="INTEGER" />
+    <result column="stereoscopin_vision_duration" property="stereoscopinVisionDuration" jdbcType="INTEGER" />
+    <result column="visual_stimulus_duration" property="visualStimulusDuration" jdbcType="INTEGER" />
+    <result column="visual_fine_duration" property="visualFineDuration" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, create_time, update_time, deleted, sinmultaneous_perception_duration, fusion_fountion_duration, 
+    stereoscopin_vision_duration, visual_stimulus_duration, visual_fine_duration, user_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from treat_plan
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from treat_plan
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ceg.pojo.TreatPlanEntity" >
+    insert into treat_plan (id, name, create_time, 
+      update_time, deleted, sinmultaneous_perception_duration, 
+      fusion_fountion_duration, stereoscopin_vision_duration, 
+      visual_stimulus_duration, visual_fine_duration, 
+      user_id)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, #{sinmultaneousPerceptionDuration,jdbcType=INTEGER}, 
+      #{fusionFountionDuration,jdbcType=INTEGER}, #{stereoscopinVisionDuration,jdbcType=INTEGER}, 
+      #{visualStimulusDuration,jdbcType=INTEGER}, #{visualFineDuration,jdbcType=INTEGER}, 
+      #{userId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ceg.pojo.TreatPlanEntity" >
+    insert into treat_plan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="sinmultaneousPerceptionDuration != null" >
+        sinmultaneous_perception_duration,
+      </if>
+      <if test="fusionFountionDuration != null" >
+        fusion_fountion_duration,
+      </if>
+      <if test="stereoscopinVisionDuration != null" >
+        stereoscopin_vision_duration,
+      </if>
+      <if test="visualStimulusDuration != null" >
+        visual_stimulus_duration,
+      </if>
+      <if test="visualFineDuration != null" >
+        visual_fine_duration,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="sinmultaneousPerceptionDuration != null" >
+        #{sinmultaneousPerceptionDuration,jdbcType=INTEGER},
+      </if>
+      <if test="fusionFountionDuration != null" >
+        #{fusionFountionDuration,jdbcType=INTEGER},
+      </if>
+      <if test="stereoscopinVisionDuration != null" >
+        #{stereoscopinVisionDuration,jdbcType=INTEGER},
+      </if>
+      <if test="visualStimulusDuration != null" >
+        #{visualStimulusDuration,jdbcType=INTEGER},
+      </if>
+      <if test="visualFineDuration != null" >
+        #{visualFineDuration,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectTreatPlane" resultMap="BaseResultMap" parameterType="com.ceg.dto.TreatPlanQuery" >
+    select
+    <include refid="Base_Column_List" />
+    from treat_plan
+    where 1=1
+    <if test="id != null">
+      and id = #{id,jdbcType=BIGINT}
+    </if>
+    <if test="userId != null">
+      and user_id = #{userId,jdbcType=BIGINT}
+    </if>
+      order by create_time desc limit 1
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ceg.pojo.TreatPlanEntity" >
+    update treat_plan
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="sinmultaneousPerceptionDuration != null" >
+        sinmultaneous_perception_duration = #{sinmultaneousPerceptionDuration,jdbcType=INTEGER},
+      </if>
+      <if test="fusionFountionDuration != null" >
+        fusion_fountion_duration = #{fusionFountionDuration,jdbcType=INTEGER},
+      </if>
+      <if test="stereoscopinVisionDuration != null" >
+        stereoscopin_vision_duration = #{stereoscopinVisionDuration,jdbcType=INTEGER},
+      </if>
+      <if test="visualStimulusDuration != null" >
+        visual_stimulus_duration = #{visualStimulusDuration,jdbcType=INTEGER},
+      </if>
+      <if test="visualFineDuration != null" >
+        visual_fine_duration = #{visualFineDuration,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ceg.pojo.TreatPlanEntity" >
+    update treat_plan
+    set name = #{name,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT},
+      sinmultaneous_perception_duration = #{sinmultaneousPerceptionDuration,jdbcType=INTEGER},
+      fusion_fountion_duration = #{fusionFountionDuration,jdbcType=INTEGER},
+      stereoscopin_vision_duration = #{stereoscopinVisionDuration,jdbcType=INTEGER},
+      visual_stimulus_duration = #{visualStimulusDuration,jdbcType=INTEGER},
+      visual_fine_duration = #{visualFineDuration,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

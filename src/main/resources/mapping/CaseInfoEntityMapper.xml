@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ceg.mapper.CaseInfoEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.ceg.pojo.CaseInfoEntity" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="category" property="category" jdbcType="INTEGER" />
+    <result column="case_history" property="caseHistory" jdbcType="VARCHAR" />
+    <result column="checker" property="checker" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="diagnosis" property="diagnosis" jdbcType="VARCHAR" />
+    <result column="paper_case_id" property="paperCaseId" jdbcType="VARCHAR" />
+    <result column="commend_treat_id" property="commendTreatId" jdbcType="BIGINT" />
+    <result column="poster" property="poster" jdbcType="VARCHAR" />
+    <result column="chief_doctor" property="chiefDoctor" jdbcType="VARCHAR" />
+    <result column="case_doctor_id" property="caseDoctorId" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="secondResultMap" type="com.ceg.dto.CaseAndVisionRecordDto" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="category" property="category" jdbcType="INTEGER" />
+    <result column="case_history" property="caseHistory" jdbcType="VARCHAR" />
+    <result column="checker" property="checker" jdbcType="VARCHAR" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="diagnosis" property="diagnosis" jdbcType="VARCHAR" />
+    <result column="paper_case_id" property="paperCaseId" jdbcType="VARCHAR" />
+    <result column="commend_treat_id" property="commendTreatId" jdbcType="BIGINT" />
+    <result column="poster" property="poster" jdbcType="VARCHAR" />
+    <result column="chief_doctor" property="chiefDoctor" jdbcType="VARCHAR" />
+    <result column="case_doctor_id" property="caseDoctorId" jdbcType="BIGINT" />
+    <collection property="visionRecordList" ofType="com.ceg.pojo.VisionRecordEntity">
+      <id column="id" property="id" jdbcType="BIGINT" />
+      <result column="user_id" property="userId" jdbcType="BIGINT" />
+      <result column="case_id" property="caseId" jdbcType="BIGINT" />
+      <result column="patient" property="patient" jdbcType="VARCHAR" />
+      <result column="sex" property="sex" jdbcType="BIGINT" />
+      <result column="age" property="age" jdbcType="INTEGER" />
+      <result column="right_Nv" property="rightNv" jdbcType="INTEGER" />
+      <result column="left_Nv" property="leftNv" jdbcType="INTEGER" />
+      <result column="right_CVA" property="rightCva" jdbcType="INTEGER" />
+      <result column="left_CVA" property="leftCva" jdbcType="INTEGER" />
+      <result column="right_DS" property="rightDs" jdbcType="INTEGER" />
+      <result column="left_DS" property="leftDs" jdbcType="INTEGER" />
+      <result column="right_DC" property="rightDc" jdbcType="INTEGER" />
+      <result column="left_DC" property="leftDc" jdbcType="INTEGER" />
+      <result column="right_angle" property="rightAngle" jdbcType="INTEGER" />
+      <result column="left_angle" property="leftAngle" jdbcType="INTEGER" />
+      <result column="right_CSF" property="rightCsf" jdbcType="INTEGER" />
+      <result column="left_CSF" property="leftCsf" jdbcType="INTEGER" />
+      <result column="right_VEP" property="rightVep" jdbcType="INTEGER" />
+      <result column="left_VEP" property="leftVep" jdbcType="INTEGER" />
+      <result column="right_VV" property="rightVv" jdbcType="INTEGER" />
+      <result column="left_VV" property="leftVv" jdbcType="INTEGER" />
+      <result column="paper_case_id" property="paperCaseId" jdbcType="INTEGER" />
+      <result column="poster" property="poster" jdbcType="VARCHAR" />
+      <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+      <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+      <result column="simultaneous" property="simultaneous" jdbcType="VARCHAR" />
+      <result column="fusion" property="fusion" jdbcType="VARCHAR" />
+      <result column="stereo" property="stereo" jdbcType="VARCHAR" />
+      <result column="right_one" property="rightOne" jdbcType="VARCHAR" />
+      <result column="left_one" property="leftOne" jdbcType="VARCHAR" />
+      <result column="right_two" property="rightTwo" jdbcType="VARCHAR" />
+      <result column="left_two" property="leftTwo" jdbcType="VARCHAR" />
+      <result column="right_p100" property="rightP100" jdbcType="VARCHAR" />
+      <result column="left_p100" property="leftP100" jdbcType="VARCHAR" />
+      <result column="rest_eye" property="restEye" jdbcType="BIT" />
+      <result column="domi_eye" property="domiEye" jdbcType="VARCHAR" />
+      <result column="line_dive" property="lineDive" jdbcType="VARCHAR" />
+      <result column="line_conv" property="lineConv" jdbcType="VARCHAR" />
+      <result column="dot_dive" property="dotDive" jdbcType="VARCHAR" />
+      <result column="dot_conv" property="dotConv" jdbcType="VARCHAR" />
+      <result column="stat_stereo" property="statStereo" jdbcType="VARCHAR" />
+      <result column="titmus" property="titmus" jdbcType="VARCHAR" />
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, create_time, update_time, user_email, name, sex, age, category,
+    case_history, checker, ip, diagnosis, paper_case_id, commend_treat_id, poster, chief_doctor, 
+    case_doctor_id,
+  </sql>
+  <sql id="Second_Column_List">
+    id, user_id, create_time, update_time, user_email, name, sex, age, category,
+    case_history, checker, ip, diagnosis, paper_case_id, commend_treat_id, poster, chief_doctor,
+    case_doctor_id, id, user_id, patient, sex, age, right_Nv, left_Nv, right_CVA, left_CVA, right_DS,
+    left_DS, right_DC, left_DC, right_angle, left_angle, right_CSF, left_CSF, right_VEP,
+    left_VEP, right_VV, left_VV, paper_case_id, poster, create_time, update_time, simultaneous,
+    fusion, stereo, right_one, left_one, right_two, left_two, right_p100, left_p100,
+    rest_eye, domi_eye,line_dive, line_conv, dot_dive, dot_conv, stat_stereo,
+    titmus
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from case_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from case_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.ceg.pojo.CaseInfoEntity" >
+    insert into case_info (id, user_id, create_time, 
+      update_time, case_id, user_email, 
+      name, sex, age, category, 
+      case_history, checker, ip, 
+      diagnosis, paper_case_id, commend_treat_id, 
+      poster, chief_doctor, case_doctor_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{caseId,jdbcType=BIGINT}, #{userEmail,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, #{category,jdbcType=INTEGER}, 
+      #{caseHistory,jdbcType=VARCHAR}, #{checker,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{diagnosis,jdbcType=VARCHAR}, #{paperCaseId,jdbcType=VARCHAR}, #{commendTreatId,jdbcType=BIGINT}, 
+      #{poster,jdbcType=VARCHAR}, #{chiefDoctor,jdbcType=VARCHAR}, #{caseDoctorId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ceg.pojo.CaseInfoEntity" >
+    insert into case_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="caseId != null" >
+        case_id,
+      </if>
+      <if test="userEmail != null" >
+        user_email,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="caseHistory != null" >
+        case_history,
+      </if>
+      <if test="checker != null" >
+        checker,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="diagnosis != null" >
+        diagnosis,
+      </if>
+      <if test="paperCaseId != null" >
+        paper_case_id,
+      </if>
+      <if test="commendTreatId != null" >
+        commend_treat_id,
+      </if>
+      <if test="poster != null" >
+        poster,
+      </if>
+      <if test="chiefDoctor != null" >
+        chief_doctor,
+      </if>
+      <if test="caseDoctorId != null" >
+        case_doctor_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseId != null" >
+        #{caseId,jdbcType=BIGINT},
+      </if>
+      <if test="userEmail != null" >
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=INTEGER},
+      </if>
+      <if test="caseHistory != null" >
+        #{caseHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null" >
+        #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosis != null" >
+        #{diagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="paperCaseId != null" >
+        #{paperCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="commendTreatId != null" >
+        #{commendTreatId,jdbcType=BIGINT},
+      </if>
+      <if test="poster != null" >
+        #{poster,jdbcType=VARCHAR},
+      </if>
+      <if test="chiefDoctor != null" >
+        #{chiefDoctor,jdbcType=VARCHAR},
+      </if>
+      <if test="caseDoctorId != null" >
+        #{caseDoctorId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ceg.pojo.CaseInfoEntity" >
+    update case_info
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="caseId != null" >
+        case_id = #{caseId,jdbcType=BIGINT},
+      </if>
+      <if test="userEmail != null" >
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="category != null" >
+        category = #{category,jdbcType=INTEGER},
+      </if>
+      <if test="caseHistory != null" >
+        case_history = #{caseHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null" >
+        checker = #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosis != null" >
+        diagnosis = #{diagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="paperCaseId != null" >
+        paper_case_id = #{paperCaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="commendTreatId != null" >
+        commend_treat_id = #{commendTreatId,jdbcType=BIGINT},
+      </if>
+      <if test="poster != null" >
+        poster = #{poster,jdbcType=VARCHAR},
+      </if>
+      <if test="chiefDoctor != null" >
+        chief_doctor = #{chiefDoctor,jdbcType=VARCHAR},
+      </if>
+      <if test="caseDoctorId != null" >
+        case_doctor_id = #{caseDoctorId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ceg.pojo.CaseInfoEntity" >
+    update case_info
+    set user_id = #{userId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      case_id = #{caseId,jdbcType=BIGINT},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      age = #{age,jdbcType=INTEGER},
+      category = #{category,jdbcType=INTEGER},
+      case_history = #{caseHistory,jdbcType=VARCHAR},
+      checker = #{checker,jdbcType=VARCHAR},
+      ip = #{ip,jdbcType=VARCHAR},
+      diagnosis = #{diagnosis,jdbcType=VARCHAR},
+      paper_case_id = #{paperCaseId,jdbcType=VARCHAR},
+      commend_treat_id = #{commendTreatId,jdbcType=BIGINT},
+      poster = #{poster,jdbcType=VARCHAR},
+      chief_doctor = #{chiefDoctor,jdbcType=VARCHAR},
+      case_doctor_id = #{caseDoctorId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="findCaseInfoByUserInfo" parameterType="com.ceg.vo.CaseInfoVo" resultMap="secondResultMap">
+      SELECT c.*,v.* from case_info as c LEFT JOIN vision_record as v on c.id = v.case_id
+      where 1=1
+      <if test="userId != null">
+        and c.user_id = #{userId,jdbcType=BIGINT}
+      </if>
+      order by v.id DESC limit 1
+  </select>
+</mapper>

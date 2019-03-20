@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script type="text/javascript" src="/static/js/meiqia.js"></script>
+    <title>用户中心-用户数据</title>
+    <meta name="renderer" content="webkit" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta name="generator" data-variable="https://account.metinfo.cn/|account|https://app.metinfo.cn/|https://www.metinfo.cn/" />
+    <link href="https://account.metinfo.cn/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/static/css/account.css" />
+</head>
+<body class="site-menubar-unfold">
+<div th:replace="background/backNavigation :: html"></div>
+<div th:replace="background/menuBar :: html"></div>
+<div class="page profile profile_info">
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-9 col-lg-9">
+                <div class="nav-tabs-horizontal nav-tabs-inverse">
+                    <div class="tab-content">
+                        <div class="form-horizontal">
+                            <div class="page-content-table">
+                                <table class="table" rules="none" cellspacing=0   align=center>
+                                    <thead>
+                                        <th><span>基本信息</span></th>
+                                        <tr>
+                                            <td colspan="6" width="50%" >流水号：[[${visionRecordDto.paperCaseId}]]</td>
+                                            <td colspan="6" rowspan="4" width="50%" ><img style="width: 60%;height:35%" src="/static/image/1234567.jpg"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6" width="50%">纸质病例号：[[${visionRecordDto.paperCaseId}]]</td>
+                                        </tr>
+                                        <tr aria-rowspan="4">
+                                            <td colspan="6" width="50%">病历状态：[[${visionRecordDto.diagnosis}]]</td>
+                                        </tr>
+                                        <tr aria-rowspan="4">
+                                            <td colspan="6">训练模式：[[${visionRecordDto.commendTreatId}]]</td>
+                                        </tr>
+                                        <tr><td colspan="12"><hr/></td></tr>
+                                        <tr>
+                                            <td colspan="3">姓名：[[${visionRecordDto.name}]]</td>
+                                            <td colspan="3"></td>
+                                            <td colspan="3">年龄：[[${visionRecordDto.age}]]</td>
+                                            <td colspan="3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">家庭住址：[[${visionRecordDto.address}]]</td>
+                                            <td></td>
+                                        </tr>
+                                        <!--<tr><td colspan="12"><hr width="100%"/></td></tr>-->
+                                        <tr>
+                                            <td colspan="4">病种：[[${visionRecordDto.category}]]</td>
+                                        </tr>
+                                        <div th:each= "visionRecord,iterStat:${visionRecordDto.visionRecordList}">
+                                        <tr>
+                                            <td colspan="4"></td>
+                                            <td colspan="4">左眼:</td>
+                                            <td colspan="4">右眼：</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">裸眼：</td>
+                                            <td colspan="4">[[${visionRecord.rightCva}]]</td>
+                                            <td colspan="4">[[${visionRecord.leftCva}]]</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">矫正：</td>
+                                            <td colspan="4">[[${visionRecord.leftCva}]]</td>
+                                            <td colspan="4">[[${visionRecord.leftCva}]]</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">屈光状态：</td>
+                                            <td colspan="4">[[${visionRecord.rightDs}]]</td>
+                                            <td colspan="4">[[${visionRecord.leftDs}]]</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">弱视类型：</td>
+                                            <td colspan="4">其他</td>
+                                            <td colspan="4">其他</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">CSF：</td>
+                                            <td colspan="4">[[${visionRecord.rightCsf}]]</td>
+                                            <td colspan="4">[[${visionRecord.leftCsf}]]</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">VEP：</td>
+                                            <td colspan="4">[[${visionRecord.rightVep}]]</td>
+                                            <td colspan="4">[[${visionRecord.leftVep}]]</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">游标视力：</td>
+                                            <td colspan="4">[[${visionRecord.rightVv}]]</td>
+                                            <td colspan="4">[[${visionRecord.leftVv}]]</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">同时视:[[${visionRecord.simultaneous}]]</td>
+                                            <td colspan="2">worth四点灯:[[${visionRecord.fusion}]]</td>
+                                            <td colspan="2"></td>
+                                            <td colspan="2">主导眼：</td>
+                                            <td colspan="2">[[${visionRecord.domiEye}]]</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                            <td colspan="2">左眼照片亮度:</td>
+                                            <td colspan="2"></td>
+                                            <td colspan="2">右眼照片亮度:</td>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">融合视:</td>
+                                            <td colspan="5"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                            <td colspan="5">线条-散开度：</td>
+                                            <td colspan="5">[[${visionRecord.lineDive}]]</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                            <td colspan="5">线条-集合度：</td>
+                                            <td colspan="5">[[${visionRecord.lineConv}]]</td>
+                                        </tr>
+                                        </div>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal modal-primary fade" id="emailedit">
+    <div class="modal-dialog modal-sm modal-center">
+        <div class="modal-content">
+            <form action="https://account.metinfo.cn/profile/info/do_s_email/" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+                <button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">修改绑定邮箱</h4>
+                </div>
+                <div class="modal-body padding-bottom-0">
+                    <p class="blue-grey-400">我们将发送一封邮件到您的新邮箱。</p>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="请输入新邮箱地址" name="email" data-fv-notempty="true" data-fv-field="email" type="email" />
+                        <small style="display: none;" class="help-block" data-fv-validator="emailAddress" data-fv-for="email" data-fv-result="NOT_VALIDATED">请输入有效的邮件地址</small>
+                        <small style="display: none;" class="help-block" data-fv-validator="notEmpty" data-fv-for="email" data-fv-result="NOT_VALIDATED">请填写必填项目</small>
+                    </div>
+                </div>
+                <div class="modal-footer text-left">
+                    <button type="submit" class="btn btn-primary btn-block">确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal modal-primary fade" id="teledit">
+    <div class="modal-dialog modal-sm modal-center">
+        <div class="modal-content">
+            <form action="https://account.metinfo.cn/profile/info/do_m_tel/" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+                <button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                    <h4 class="modal-title">修改绑定手机</h4>
+                </div>
+                <div class="modal-body padding-bottom-0">
+                    <div class="form-group">
+                        <input class="form-control" placeholder="请输入新手机号码" name="tel" data-fv-notempty="true" data-fv-field="tel" type="text" />
+                        <small style="display: none;" class="help-block" data-fv-validator="notEmpty" data-fv-for="tel" data-fv-result="NOT_VALIDATED">请填写必填项目</small>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input placeholder="短信验证码" class="form-control" name="code" data-fv-notempty="true" data-fv-field="code" type="text" />
+                            <span class="input-group-btn"> <button type="button" class="btn btn-success code" action="https://account.metinfo.cn/profile/info/do_s_tel">获取验证码</button> </span>
+                        </div>
+                        <small style="display: none;" class="help-block" data-fv-validator="notEmpty" data-fv-for="code" data-fv-result="NOT_VALIDATED">请填写必填项目</small>
+                    </div>
+                </div>
+                <div class="modal-footer text-left">
+                    <button type="submit" class="btn btn-block btn-primary">确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--<div class="modal modal-primary fade" id="bind-weixin">-->
+    <!--<div class="modal-dialog modal-center">-->
+        <!--<div class="modal-content">-->
+            <!--<form action="" novalidate="novalidate" class="fv-form fv-form-bootstrap">-->
+                <!--<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>-->
+                <!--<div class="modal-header">-->
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>-->
+                    <!--<h4 class="modal-title">绑定微信</h4>-->
+                <!--</div>-->
+                <!--<div class="modal-footer padding-top-20 text-center row">-->
+                    <!--<div class="col-xs-6">-->
+                        <!--第一步：扫描关注米拓公众号-->
+                        <!--<span class="red-600">（必须）</span>。-->
+                        <!--<img data-src="https://account.metinfo.cn/templates/account/min/img/weixin_mituo.jpg" width="100%" />-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-6">-->
+                        <!--第二步：扫描绑定微信号。-->
+                        <!--<img data-src="http://api.metinfo.cn/qrcode.php?url=https://process.metinfo.cn/Api/WeiXin/jumpUrl&amp;code=481ce2awe2b9m1a0cd71946f140e3edsh3b60051%24M%241536165648%24M%24eyJ3ZWl4aW4iOiIiLCJvcGVuaWQiOiIiLCJ1c2VyX2lkIjoiZ3Vvemhlbnl1MTEyQDE2My5jb20iLCJwbGFjZSI6ImFjY291bnQifQ%3D%3D%24M%241" width="100%" />-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript" src="/static/js/track.js"></script>
+<script>
+    var code = '';
+</script>
+<footer class="site-footer blue-grey-500 font-weight-300">
+    <div class="site-footer-legal">
+        Powered&nbsp;by&nbsp;
+        <a href="https://www.MetInfo.cn" target="_blank" title="企业网站管理系统">MetInfo</a>
+    </div>
+    <div class="site-footer-right">
+        <span class="copyright margin-right-5">&copy; 米拓</span>
+        <span class="beian">湘 ICP 备 <a href="http://www.miitbeian.gov.cn/" rel="nofollow" target="_blank">07500799 号 - 5</a> </span>
+    </div>
+</footer>
+<script>
+    var pagetype = 'profile_info',userName='guozhenyu112@163.com',useremail='guozhenyu112@163.com',ownurl='https://account.metinfo.cn/profile/info/',appurl='https://app.metinfo.cn/',accurl='https://account.metinfo.cn/',strcode='481ce2awe2b9m1a0cd71946f140e3edsh3b60051%24M%241536165648%24M%24eyJ3ZWl4aW4iOiIiLCJvcGVuaWQiOiIiLCJ1c2VyX2lkIjoiZ3Vvemhlbnl1MTEyQDE2My5jb20iLCJwbGFjZSI6ImFjY291bnQifQ%3D%3D%24M%241';
+</script>
+<script src="/static/js/account.js"></script>
+<script type="text/javascript">
+    var user_id = '';
+    (function() {
+        var hm = document.createElement("script");
+        var souhu = document.createElement("script");
+        hm.type = "text\/javascript";
+        souhu.type = "text\/javascript";
+        hm.src = "https://track.metinfo.cn/js/track.js";
+        souhu.src = "https://pv.sohu.com/cityjson?ie=utf-8";
+        var souhud = document.getElementsByTagName("script")[0];
+        var s = document.getElementsByTagName("script")[0];
+        souhud.parentNode.insertBefore(souhu, souhud);
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<div>
+    <div class="sweet-overlay" tabindex="-1"></div>
+    <div class="sweet-alert" tabindex="-1">
+        <div class="icon error">
+            <span class="x-mark"><span class="line left"></span><span class="line right"></span></span>
+        </div>
+        <div class="icon warning">
+            <span class="body"></span>
+            <span class="dot"></span>
+        </div>
+        <div class="icon info"></div>
+        <div class="icon success">
+            <span class="line tip"></span>
+            <span class="line long"></span>
+            <div class="placeholder"></div>
+            <div class="fix"></div>
+        </div>
+        <div class="icon custom"></div>
+        <h2>Title</h2>
+        <p class="lead text-muted">Text</p>
+        <p><button class="cancel btn btn-lg" tabindex="2">Cancel</button> <button class="confirm btn btn-lg" tabindex="1">OK</button></p>
+    </div>
+</div>
+</body>
+</html>

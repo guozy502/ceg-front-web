@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta charset="utf-8" />
+ <title>专家列表</title>
+ <link rel="icon" href="/static/image/title_img.ico"/>
+ <meta name="renderer" content="webkit" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+ <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui" />
+ <meta name="format-detection" content="telephone=no" />
+ <meta name="description" content="" />
+ <meta name="keywords" content="医疗机械网站制作|医疗机械网站建设" />
+ <meta name="generator" content="MetInfo 6.1.3" data-variable="https://show.metinfo.cn/m/mui120/363/|cn|cn|mui120|3|1|0" data-user_name="" />
+ <link href="#" rel="shortcut icon" type="image/x-icon" />
+ <link rel="stylesheet" type="text/css" href="/static/css/basic.css?6130" />
+ <link rel="stylesheet" type="text/css" href="/static/css/product.css?1545561649" />
+ <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+ <script charset="utf-8" data-require-id="embed/webimlight/main" src="/static/js/main.js" async=""></script>
+</head>
+<body class="met-navfixed ny-nobanner">
+<header class="met-head navbar-fixed-top" m-id="1" m-type="head_nav">
+ <div id="tophead" style="display: block;">
+  <div class="container">
+   <div class="row">
+    <div class="col-sm-12">
+     <div class="tophead-contact pull-xs-left">
+      <ul class="m-0 p-0">
+       <li> <i class="fa fa-phone" aria-hidden="true"></i><a href="tel:">0731-00000000</a></li>
+       <li> <i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:">email@email.mt</a></li>
+      </ul>
+     </div>
+     <div class="tophead-right tophead-address pull-xs-right">
+      <i class="fa fa-map-marker" aria-hidden="true"></i>
+      <span>辽宁沈阳市浑南区</span>
+     </div>
+     <div class="clear"></div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <nav class="navbar navbar-default box-shadow-none head_nav_met_16_2">
+  <div class="container">
+   <div class="row">
+    <h1 hidden="">贝视优官网</h1>
+    <!-- logo -->
+    <div th:replace="log :: html"></div>
+    <!-- logo -->
+    <button type="button" class="navbar-toggler hamburger hamburger-close collapsed p-x-5 head_nav_met_16_2-toggler" data-target="#head_nav_met_16_2-collapse" data-toggle="collapse"> <span class="sr-only"></span> <span class="hamburger-bar"></span> </button>
+    <!-- 导航 -->
+    <div th:replace="navigation :: html"></div>
+    <!-- 导航 -->
+   </div>
+  </div>
+ </nav>
+</header>
+<div class="subcolumn_nav_met_11_4" m-id="38" m-type="nocontent">
+ <div class="container">
+  <div class="row">
+   <div class="clearfix">
+    <div class="subcolumn-nav">
+     <ul class="subcolumn_nav_met_11_4-ul m-b-0 ulstyle">
+      <li> <a href="#" title="全部" target="_self" class="active link">全部</a> </li>
+      <li> <a href="#" title="儿科" target="_self" class=" link">儿科</a> </li>
+     </ul>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<section class="product_list_page_met_11_3" m-id="14">
+ <div class="animsition">
+  <div class="less-page-content">
+   <ul class="product_list_page_met_11_3-list blocks-100 blocks-md-100 blocks-lg-2 blocks-xxl-2 ulstyle met-pager-ajax imagesize"
+       id="met-grid" data-scale="480x640" style="position: relative; height: auto; perspective-origin: 50% 909.5px;">
+    <!--展示内容-->
+    <!--橱窗-->
+    <li class="p-r-15 item-list shown" th:id="${responseData.data.get(0).id}">
+     <div class="card clearfix" style="height: 290.33px">
+      <div class="left">
+       <img th:src="${responseData.data.get(0).imgUrl}" th:alt="${responseData.data.get(0).name}" style="width: 290.06px" />
+      </div>
+      <div class="right">
+       <h4 class="card-title p-y-20 font-size-16 m-b-0" th:text="${responseData.data.get(0).name}"></h4>
+       <p class="keyword"></p>
+       <p class="card-text" th:text="${responseData.data.get(0).expertise}"></p>
+       <p class="desc" th:text="${responseData.data.get(0).introduce}"></p>
+       <p class="price m-b-0 m-t-5"></p>
+       <a th:href="@{/ceg/front/showDoctorDetail(id=${responseData.data.get(0).id})}" class="more appear-no-repeat animation-slide-bottom" data-repeat="false"> <span data-title="了解更多"> 了解更多 </span> </a>
+      </div>
+     </div>
+    </li>
+    <li class="p-r-15 item-list shown" th:id="${responseData.data.get(1).id}">
+     <div class="card clearfix" style="height: 290.33px">
+      <div class="left">
+       <img th:src="${responseData.data.get(1).imgUrl}" th:alt="${responseData.data.get(1).name}" style="width: 290.06px" />
+      </div>
+      <div class="right">
+       <h4 class="card-title p-y-20 font-size-16 m-b-0" th:text="${responseData.data.get(1).name}"></h4>
+       <p class="keyword"></p>
+       <p class="card-text" th:text="${responseData.data.get(1).expertise}"></p>
+       <p class="desc" th:text="${responseData.data.get(1).introduce}"></p>
+       <p class="price m-b-0 m-t-5"></p>
+       <a th:href="@{/ceg/front/showDoctorDetail(id=${responseData.data.get(1).id})}" class="more appear-no-repeat animation-slide-bottom" data-repeat="false"> <span data-title="了解更多"> 了解更多 </span> </a>
+      </div>
+     </div>
+    </li>
+    <li class="p-r-15 item-list shown" th:id="${responseData.data.get(2).id}">
+     <div class="card clearfix" style="height: 290.33px">
+      <div class="left">
+       <img th:src="${responseData.data.get(2).imgUrl}" th:alt="${responseData.data.get(2).name}" style="width: 290.06px" />
+      </div>
+      <div class="right">
+       <h4 class="card-title p-y-20 font-size-16 m-b-0" th:text="${responseData.data.get(2).name}"></h4>
+       <p class="keyword"></p>
+       <p class="card-text" th:text="${responseData.data.get(2).expertise}"></p>
+       <p class="desc" th:text="${responseData.data.get(2).introduce}"></p>
+       <p class="price m-b-0 m-t-5"></p>
+       <a th:href="@{/ceg/front/showDoctorDetail(id=${responseData.data.get(2).id})}" class="more appear-no-repeat animation-slide-bottom" data-repeat="false"> <span data-title="了解更多"> 了解更多 </span> </a>
+      </div>
+     </div>
+    </li>
+    <!--橱窗-->
+    <!--展示内容-->
+   </ul>
+   <!--分页-->
+   <div class="m-t-20 text-xs-center hidden-sm-down" m-type="noset">
+   </div>
+   <div class="met-pager-ajax-link hidden-md-up appear-no-repeat animation-slide-bottom" data-repeat="false" m-id="14" style="">
+    <button type="button" class="btn btn-primary btn-block btn-squared ladda-button" id="met-pager-btn" data-plugin="ladda" data-style="slide-left"> <i class="icon wb-chevron-down m-r-5" aria-hidden="true"></i> </button>
+   </div>
+  </div>
+  <!--分页-->
+ </div>
+</section>
+<div th:replace="section :: html"></div>
+<div th:replace="foot :: html"></div>
+<div th:replace="weiXinInfo :: html"></div>
+
+</body>
+
+</html>
